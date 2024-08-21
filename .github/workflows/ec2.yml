@@ -3,7 +3,7 @@ name: Deployment LP to Prod
 
 on:
   push:
-    branches: main
+    branches: development
 jobs:
 
   Deployment:

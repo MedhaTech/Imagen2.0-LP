@@ -15,17 +15,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to Prod
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/development'
         env:
-          PRIVATE_KEY: ${{ secrets.ATL2_STG_PRIVATE_KEY }}
-          HOSTNAME: ${{ secrets.ATL2_STG_HOSTNAME }}
+          PRIVATE_KEY: ${{ secrets.IMG_PRIVATE_KEY }}
+          HOSTNAME: ${{ secrets.IMG_HOSTNAME }}
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 400 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ubuntu@${{ secrets.ATL2_STG_HOSTNAME }} '
-            cd /var/www/html/SIM-LP &&
+          ssh -o StrictHostKeyChecking=no -i private_key ubuntu@${{ secrets.IMG_HOSTNAME }} '
+            cd /var/www/html/LP &&
             sudo git fetch origin &&
-            sudo git checkout main &&
-            sudo git pull origin main '
+            sudo git checkout development &&
+            sudo git pull origin development '
  
 
             

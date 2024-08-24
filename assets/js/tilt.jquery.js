@@ -1,30 +1,305 @@
-var VanillaTilt = function() { "use strict";
-    class t { constructor(t, e = {}) { if (!(t instanceof Node)) throw "Can't initialize VanillaTilt because " + t + " is not a Node.";
-            this.width = null, this.height = null, this.left = null, this.top = null, this.transitionTimeout = null, this.updateCall = null, this.updateBind = this.update.bind(this), this.resetBind = this.reset.bind(this), this.element = t, this.settings = this.extendSettings(e), this.reverse = this.settings.reverse ? -1 : 1, this.glare = this.isSettingTrue(this.settings.glare), this.glarePrerender = this.isSettingTrue(this.settings["glare-prerender"]), this.glare && this.prepareGlare(), this.addEventListeners() }
-        isSettingTrue(t) { return "" === t || !0 === t || 1 === t }
-        addEventListeners() { this.onMouseEnterBind = this.onMouseEnter.bind(this), this.onMouseMoveBind = this.onMouseMove.bind(this), this.onMouseLeaveBind = this.onMouseLeave.bind(this), this.onWindowResizeBind = this.onWindowResizeBind.bind(this), this.element.addEventListener("mouseenter", this.onMouseEnterBind), this.element.addEventListener("mousemove", this.onMouseMoveBind), this.element.addEventListener("mouseleave", this.onMouseLeaveBind), this.glare && window.addEventListener("resize", this.onWindowResizeBind) }
-        removeEventListeners() { this.element.removeEventListener("mouseenter", this.onMouseEnterBind), this.element.removeEventListener("mousemove", this.onMouseMoveBind), this.element.removeEventListener("mouseleave", this.onMouseLeaveBind), this.glare && window.removeEventListener("resize", this.onWindowResizeBind) }
-        destroy() { clearTimeout(this.transitionTimeout), null !== this.updateCall && cancelAnimationFrame(this.updateCall), this.reset(), this.removeEventListeners(), this.element.vanillaTilt = null, delete this.element.vanillaTilt, this.element = null }
-        onMouseEnter(t) { this.updateElementPosition(), this.element.style.willChange = "transform", this.setTransition() }
-        onMouseMove(t) { null !== this.updateCall && cancelAnimationFrame(this.updateCall), this.event = t, this.updateCall = requestAnimationFrame(this.updateBind) }
-        onMouseLeave(t) { this.setTransition(), this.settings.reset && requestAnimationFrame(this.resetBind) }
-        reset() { this.event = { pageX: this.left + this.width / 2, pageY: this.top + this.height / 2 }, this.element.style.transform = "perspective(" + this.settings.perspective + "px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)", this.glare && (this.glareElement.style.transform = "rotate(180deg) translate(-50%, -50%)", this.glareElement.style.opacity = "0") }
-        getValues() { let t = (this.event.clientX - this.left) / this.width,
-                e = (this.event.clientY - this.top) / this.height; return t = Math.min(Math.max(t, 0), 1), e = Math.min(Math.max(e, 0), 1), { tiltX: (this.reverse * (this.settings.max / 2 - t * this.settings.max)).toFixed(2), tiltY: (this.reverse * (e * this.settings.max - this.settings.max / 2)).toFixed(2), percentageX: 100 * t, percentageY: 100 * e, angle: Math.atan2(this.event.clientX - (this.left + this.width / 2), -(this.event.clientY - (this.top + this.height / 2))) * (180 / Math.PI) } }
-        updateElementPosition() { let t = this.element.getBoundingClientRect();
-            this.width = this.element.offsetWidth, this.height = this.element.offsetHeight, this.left = t.left, this.top = t.top }
-        update() { let t = this.getValues();
-            this.element.style.transform = "perspective(" + this.settings.perspective + "px) rotateX(" + ("x" === this.settings.axis ? 0 : t.tiltY) + "deg) rotateY(" + ("y" === this.settings.axis ? 0 : t.tiltX) + "deg) scale3d(" + this.settings.scale + ", " + this.settings.scale + ", " + this.settings.scale + ")", this.glare && (this.glareElement.style.transform = `rotate(${t.angle}deg) translate(-50%, -50%)`, this.glareElement.style.opacity = `${t.percentageY*this.settings["max-glare"]/100}`), this.element.dispatchEvent(new CustomEvent("tiltChange", { detail: t })), this.updateCall = null }
-        prepareGlare() { if (!this.glarePrerender) { const t = document.createElement("div");
-                t.classList.add("js-tilt-glare"); const e = document.createElement("div");
-                e.classList.add("js-tilt-glare-inner"), t.appendChild(e), this.element.appendChild(t) }
-            this.glareElementWrapper = this.element.querySelector(".js-tilt-glare"), this.glareElement = this.element.querySelector(".js-tilt-glare-inner"), this.glarePrerender || (Object.assign(this.glareElementWrapper.style, { position: "absolute", top: "0", left: "0", width: "100%", height: "100%", overflow: "hidden" }), Object.assign(this.glareElement.style, { position: "absolute", top: "50%", left: "50%", "pointer-events": "none", "background-image": `linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)`, width: `${2*this.element.offsetWidth}px`, height: `${2*this.element.offsetWidth}px`, transform: "rotate(180deg) translate(-50%, -50%)", "transform-origin": "0% 0%", opacity: "0" })) }
-        updateGlareSize() { Object.assign(this.glareElement.style, { width: `${2*this.element.offsetWidth}`, height: `${2*this.element.offsetWidth}` }) }
-        onWindowResizeBind() { this.updateGlareSize() }
-        setTransition() { clearTimeout(this.transitionTimeout), this.element.style.transition = this.settings.speed + "ms " + this.settings.easing, this.glare && (this.glareElement.style.transition = `opacity ${this.settings.speed}ms ${this.settings.easing}`), this.transitionTimeout = setTimeout(() => { this.element.style.transition = "";
-                this.glare && (this.glareElement.style.transition = "") }, this.settings.speed) }
-        extendSettings(t) { let e = { reverse: !1, max: 35, perspective: 1e3, easing: "cubic-bezier(.03,.98,.52,.99)", scale: "1", speed: "300", transition: !0, axis: null, glare: !1, "max-glare": 1, "glare-prerender": !1, reset: !0 },
-                i = {}; for (var s in e)
-                if (s in t) i[s] = t[s];
-                else if (this.element.hasAttribute("data-tilt-" + s)) { let t = this.element.getAttribute("data-tilt-" + s); try { i[s] = JSON.parse(t) } catch (e) { i[s] = t } } else i[s] = e[s]; return i }
-        static init(e, i) { e instanceof Node && (e = [e]), e instanceof NodeList && (e = [].slice.call(e)), e instanceof Array && e.forEach(e => { "vanillaTilt" in e || (e.vanillaTilt = new t(e, i)) }) } } return "undefined" != typeof document && (window.VanillaTilt = t, t.init(document.querySelectorAll("[data-tilt]"))), t }();
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        // Node/CommonJS
+        module.exports = function( root, jQuery ) {
+            if ( jQuery === undefined ) {
+                // require('jQuery') returns a factory that requires window to
+                // build a jQuery instance, we normalize how we use modules
+                // that require this pattern but the window provided is a noop
+                // if it's defined (how jquery works)
+                if ( typeof window !== 'undefined' ) {
+                    jQuery = require('jquery');
+                }
+                else {
+                    jQuery = require('jquery')(root);
+                }
+            }
+            factory(jQuery);
+            return jQuery;
+        };
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
+    $.fn.tilt = function (options) {
+
+        /**
+         * RequestAnimationFrame
+         */
+        const requestTick = function() {
+            if (this.ticking) return;
+            requestAnimationFrame(updateTransforms.bind(this));
+            this.ticking = true;
+        };
+
+        /**
+         * Bind mouse movement evens on instance
+         */
+        const bindEvents = function() {
+            const _this = this;
+            $(this).on('mousemove', mouseMove);
+            $(this).on('mouseenter', mouseEnter);
+            if (this.settings.reset) $(this).on('mouseleave', mouseLeave);
+            if (this.settings.glare) $(window).on('resize', updateGlareSize.bind(_this));
+        };
+
+        /**
+         * Set transition only on mouse leave and mouse enter so it doesn't influence mouse move transforms
+         */
+        const setTransition = function() {
+            if (this.timeout !== undefined) clearTimeout(this.timeout);
+            $(this).css({'transition': `${this.settings.speed}ms ${this.settings.easing}`});
+            if(this.settings.glare) this.glareElement.css({'transition': `opacity ${this.settings.speed}ms ${this.settings.easing}`});
+            this.timeout = setTimeout(() => {
+                $(this).css({'transition': ''});
+                if(this.settings.glare) this.glareElement.css({'transition': ''});
+            }, this.settings.speed);
+        };
+
+        /**
+         * When user mouse enters tilt element
+         */
+        const mouseEnter = function(event) {
+            this.ticking = false;
+            $(this).css({'will-change': 'transform'});
+            setTransition.call(this);
+
+            // Trigger change event
+            $(this).trigger("tilt.mouseEnter");
+        };
+
+        /**
+         * Return the x,y position of the mouse on the tilt element
+         * @returns {{x: *, y: *}}
+         */
+        const getMousePositions = function(event) {
+            if (typeof(event) === "undefined") {
+                event = {
+                    pageX: $(this).offset().left + $(this).outerWidth() / 2,
+                    pageY: $(this).offset().top + $(this).outerHeight() / 2
+                };
+            }
+            return {x: event.pageX, y: event.pageY};
+        };
+
+        /**
+         * When user mouse moves over the tilt element
+         */
+        const mouseMove = function(event) {
+            this.mousePositions = getMousePositions(event);
+            requestTick.call(this);
+        };
+
+        /**
+         * When user mouse leaves tilt element
+         */
+        const mouseLeave = function() {
+            setTransition.call(this);
+            this.reset = true;
+            requestTick.call(this);
+
+            // Trigger change event
+            $(this).trigger("tilt.mouseLeave");
+        };
+
+        /**
+         * Get tilt values
+         *
+         * @returns {{x: tilt value, y: tilt value}}
+         */
+        const getValues = function() {
+            const width = $(this).outerWidth();
+            const height = $(this).outerHeight();
+            const left = $(this).offset().left;
+            const top = $(this).offset().top;
+            const percentageX = (this.mousePositions.x - left) / width;
+            const percentageY = (this.mousePositions.y - top) / height;
+            // x or y position inside instance / width of instance = percentage of position inside instance * the max tilt value
+            const tiltX = ((this.settings.maxTilt / 2) - ((percentageX) * this.settings.maxTilt)).toFixed(2);
+            const tiltY = (((percentageY) * this.settings.maxTilt) - (this.settings.maxTilt / 2)).toFixed(2);
+            // angle
+            const angle = Math.atan2(this.mousePositions.x - (left+width/2),- (this.mousePositions.y - (top+height/2)) )*(180/Math.PI);
+            // Return x & y tilt values
+            return {tiltX, tiltY, 'percentageX': percentageX * 100, 'percentageY': percentageY * 100, angle};
+        };
+
+        /**
+         * Update tilt transforms on mousemove
+         */
+        const updateTransforms = function() {
+            this.transforms = getValues.call(this);
+
+            if (this.reset) {
+                this.reset = false;
+                $(this).css('transform', `perspective(${this.settings.perspective}px) rotateX(0deg) rotateY(0deg)`);
+
+                // Rotate glare if enabled
+                if (this.settings.glare){
+                    this.glareElement.css('transform', `rotate(180deg) translate(-50%, -50%)`);
+                    this.glareElement.css('opacity', `0`);
+                }
+
+                return;
+            } else {
+                $(this).css('transform', `perspective(${this.settings.perspective}px) rotateX(${this.settings.disableAxis === 'x' ? 0 : this.transforms.tiltY}deg) rotateY(${this.settings.disableAxis === 'y' ? 0 : this.transforms.tiltX}deg) scale3d(${this.settings.scale},${this.settings.scale},${this.settings.scale})`);
+
+                // Rotate glare if enabled
+                if (this.settings.glare){
+                    this.glareElement.css('transform', `rotate(${this.transforms.angle}deg) translate(-50%, -50%)`);
+                    this.glareElement.css('opacity', `${this.transforms.percentageY * this.settings.maxGlare / 100}`);
+                }
+            }
+
+            // Trigger change event
+            $(this).trigger("change", [this.transforms]);
+
+            this.ticking = false;
+        };
+
+        /**
+         * Prepare elements
+         */
+        const prepareGlare = function () {
+            const glarePrerender = this.settings.glarePrerender;
+
+            // If option pre-render is enabled we assume all html/css is present for an optimal glare effect.
+            if (!glarePrerender)
+            // Create glare element
+                $(this).append('<div class="js-tilt-glare"><div class="js-tilt-glare-inner"></div></div>');
+
+            // Store glare selector if glare is enabled
+            this.glareElementWrapper = $(this).find(".js-tilt-glare");
+            this.glareElement = $(this).find(".js-tilt-glare-inner");
+
+            // Remember? We assume all css is already set, so just return
+            if (glarePrerender) return;
+
+            // Abstracted re-usable glare styles
+            const stretch = {
+                'position': 'absolute',
+                'top': '0',
+                'left': '0',
+                'width': '100%',
+                'height': '100%',
+            };
+
+            // Style glare wrapper
+            this.glareElementWrapper.css(stretch).css({
+                'overflow': 'hidden',
+            });
+
+            // Style glare element
+            this.glareElement.css({
+                'position': 'absolute',
+                'top': '50%',
+                'left': '50%',
+                'pointer-events': 'none',
+                'background-image': `linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)`,
+                'width': `${$(this).outerWidth()*2}`,
+                'height': `${$(this).outerWidth()*2}`,
+                'transform': 'rotate(180deg) translate(-50%, -50%)',
+                'transform-origin': '0% 0%',
+                'opacity': '0',
+            });
+
+        };
+
+        /**
+         * Update glare on resize
+         */
+        const updateGlareSize = function () {
+            this.glareElement.css({
+                'width': `${$(this).outerWidth()*2}`,
+                'height': `${$(this).outerWidth()*2}`,
+            });
+        };
+
+        /**
+         * Public methods
+         */
+        $.fn.tilt.destroy = function() {
+            $(this).each(function () {
+                $(this).find('.js-tilt-glare').remove();
+                $(this).css({'will-change': '', 'transform': ''});
+                $(this).off('mousemove mouseenter mouseleave');
+            });
+        };
+
+        $.fn.tilt.getValues = function() {
+            const results = [];
+            $(this).each(function () {
+                this.mousePositions = getMousePositions.call(this);
+                results.push(getValues.call(this));
+            });
+            return results;
+        };
+
+        $.fn.tilt.reset = function() {
+            $(this).each(function () {
+                this.mousePositions = getMousePositions.call(this);
+                this.settings = $(this).data('settings');
+                mouseLeave.call(this);
+                setTimeout(() => {
+                    this.reset = false;
+                }, this.settings.transition);
+            });
+        };
+
+        /**
+         * Loop every instance
+         */
+        return this.each(function () {
+
+            /**
+             * Default settings merged with user settings
+             * Can be set trough data attributes or as parameter.
+             * @type {*}
+             */
+            this.settings = $.extend({
+                maxTilt: $(this).is('[data-tilt-max]') ? $(this).data('tilt-max') : 8,
+                perspective: $(this).is('[data-tilt-perspective]') ? $(this).data('tilt-perspective') : 300,
+                easing: $(this).is('[data-tilt-easing]') ? $(this).data('tilt-easing') : 'cubic-bezier(.03,.98,.52,.99)',
+                scale: $(this).is('[data-tilt-scale]') ? $(this).data('tilt-scale') : '1',
+                speed: $(this).is('[data-tilt-speed]') ? $(this).data('tilt-speed') : '400',
+                transition: $(this).is('[data-tilt-transition]') ? $(this).data('tilt-transition') : true,
+                disableAxis: $(this).is('[data-tilt-disable-axis]') ? $(this).data('tilt-disable-axis') : null,
+                axis: $(this).is('[data-tilt-axis]') ? $(this).data('tilt-axis') : null,
+                reset: $(this).is('[data-tilt-reset]') ? $(this).data('tilt-reset') : true,
+                glare: $(this).is('[data-tilt-glare]') ? $(this).data('tilt-glare') : false,
+                maxGlare: $(this).is('[data-tilt-maxglare]') ? $(this).data('tilt-maxglare') : 1,
+            }, options);
+
+            // Add deprecation warning & set disableAxis to deprecated axis setting
+            if(this.settings.axis !== null){
+                console.warn('Tilt.js: the axis setting has been renamed to disableAxis. See https://github.com/gijsroge/tilt.js/pull/26 for more information');
+                this.settings.disableAxis = this.settings.axis;
+            }
+
+            this.init = () => {
+                // Store settings
+                $(this).data('settings', this.settings);
+
+                // Prepare element
+                if(this.settings.glare) prepareGlare.call(this);
+
+                // Bind events
+                bindEvents.call(this);
+            };
+
+            // Init
+            this.init();
+
+        });
+    };
+
+    /**
+     * Auto load
+     */
+    $('[data-tilt]').tilt();
+
+    return true;
+}));

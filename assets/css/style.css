@@ -6153,13 +6153,13 @@
 
 
  .map_color {
-   fill: #f3d6ba;
-   stroke: #f5861f;
+   fill: #d7eafa;
+   stroke: #139ec7;
    stroke-width: 1;
  }
 
  .map_color:hover {
-   fill: #ffc05e !important;
+   fill: #139ec7 !important;
  }
 
 

@@ -6152,9 +6152,6 @@
    background-size: cover;
    background-repeat: no-repeat;
  }
-
-
-
  .map_color {
    fill:#3cb2bf;
    stroke: #04444b;
@@ -6165,8 +6162,7 @@
    fill: #7edbe6 !important;
  }
 
-
- .map_counter_box_shape {
+.map_counter_box_shape {
    padding: 20px 20px;
    background: #f0f5ff;
    margin-top: 20px;

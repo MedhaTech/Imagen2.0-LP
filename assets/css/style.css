@@ -903,7 +903,7 @@ img {
   background: #fff;
   display: inline-block;
   padding: 19px 25px 18px 30px;
-  border: 1px solid #cccccc;
+  /* border: 1px solid #cccccc; */
   z-index: 1;
   border-radius: 50px 50px 50px 0px;
 }

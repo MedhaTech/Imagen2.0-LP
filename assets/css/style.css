@@ -436,7 +436,7 @@ img {
 }
 
 .theme-btn.btn-one {
-  background: #fff;
+  background: #111;
 }
 
 .theme-btn:before {
@@ -811,11 +811,11 @@ img {
 .header-top .phone-box p {
   font-size: 16px;
   line-height: 30px;
-  color: #fff;
+  color: #111;
 }
 
 .header-top .phone-box p a {
-  color: #fff;
+  color: #111;
 }
 
 .header-top .phone-box p i {
@@ -846,8 +846,8 @@ img {
   height: 30px;
   line-height: 30px;
   font-size: 14px;
-  color: #fff;
-  border: 1px solid #c2bfc3;
+  color: #111;
+  border: 1px solid #111;
   text-align: center;
   border-radius: 50%;
 }
@@ -1697,7 +1697,7 @@ div#mCSB_1_container {
 .banner-section .content-box h2 {
   display: block;
   font-size: 35px;
-  line-height: 72px;
+  line-height: 40px;
   font-weight: 700;
   margin-bottom: 20px;
 }
@@ -1830,11 +1830,11 @@ div#mCSB_1_container {
 .banner-section .image-box {
   position: relative;
   display: block;
-  margin-right: -306px;
+  /* margin-right: -306px; */
   min-height: 500px;
-  padding-left: 200px;
-  padding-right: 175px;
-  padding-top: 45px;
+  /* padding-left: 200px; */
+  /* padding-right: 175px; */
+  /* padding-top: 45px; */
 }
 
 .banner-section .image-box .image-1 img {
@@ -3560,7 +3560,7 @@ h3 a:hover {}
 .footer-bottom {
   position: relative;
   width: 100%;
-  background: #300061;
+  background: #010101;
   padding: 22px 0px;
 }
 

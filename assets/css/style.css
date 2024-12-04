@@ -71,10 +71,10 @@
 
 
 body {
-  font-size: 18px;
-  color: #555555;
+  font-size: 16px;
+  color: #111;
   line-height: 30px;
-  font-weight: 400;
+  font-weight: 500;
   background: #ffffff;
   font-family: 'Montserrat', sans-serif;
   background-size: cover;
@@ -180,7 +180,7 @@ textarea:focus {
 p {
   position: relative;
   font-family: 'Montserrat', sans-serif;
-  color: #555555;
+  color: #111;
   font-weight: 400;
   margin: 0px;
   transition: all 500ms ease;

@@ -404,6 +404,92 @@
 	}
 
 
+//   const gallery = document.querySelector('.drag-scroll-gallery');
+//   let isMouseDown = false;
+//   let startX;
+//   let scrollLeft;
+
+//   gallery.addEventListener('mousedown', (e) => {
+//     isMouseDown = true;
+//     gallery.classList.add('active');
+//     startX = e.pageX - gallery.offsetLeft;
+//     scrollLeft = gallery.scrollLeft;
+//   });
+
+//   gallery.addEventListener('mouseleave', () => {
+//     isMouseDown = false;
+//     gallery.classList.remove('active');
+//   });
+
+//   gallery.addEventListener('mouseup', () => {
+//     isMouseDown = false;
+//     gallery.classList.remove('active');
+//   });
+
+//   gallery.addEventListener('mousemove', (e) => {
+//     if (!isMouseDown) return;
+//     e.preventDefault();
+//     const x = e.pageX - gallery.offsetLeft;
+//     const walk = (x - startX) * 2; // Scroll faster by multiplying by a factor
+//     gallery.scrollLeft = scrollLeft - walk;
+//   });
+
+
+//   const slider = document.querySelector('.gesture-scroll-slider');
+//   let isTouchStart = false;
+//   let startTouchX;
+//   let scrollStartX;
+
+//   // For Mouse Events
+//   slider.addEventListener('mousedown', (e) => {
+//     isTouchStart = true;
+//     startTouchX = e.pageX;
+//     scrollStartX = slider.scrollLeft;
+//     slider.style.cursor = 'grabbing';
+//   });
+
+//   slider.addEventListener('mouseup', () => {
+//     isTouchStart = false;
+//     slider.style.cursor = 'grab';
+//   });
+
+//   slider.addEventListener('mousemove', (e) => {
+//     if (!isTouchStart) return;
+//     const moveX = e.pageX - startTouchX;
+//     slider.scrollLeft = scrollStartX - moveX;
+//   });
+
+//   // For Touch Events (mobile)
+//   slider.addEventListener('touchstart', (e) => {
+//     isTouchStart = true;
+//     startTouchX = e.touches[0].pageX;
+//     scrollStartX = slider.scrollLeft;
+//   });
+
+//   slider.addEventListener('touchmove', (e) => {
+//     if (!isTouchStart) return;
+//     const moveX = e.touches[0].pageX - startTouchX;
+//     slider.scrollLeft = scrollStartX - moveX;
+//   });
+
+//   slider.addEventListener('touchend', () => {
+//     isTouchStart = false;
+//   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	//Client Testimonial Carousel
 	if ($('.client-testimonial-carousel').length && $('.client-thumbs-carousel').length) {
 

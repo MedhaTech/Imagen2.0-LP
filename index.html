@@ -146,6 +146,13 @@
     <!-- preloader end -->
 
 
+
+    <!-- <ul class="social-links clearfix">
+                            <li><a href="https://www.instagram.com/yfsi_telangana/" target="_blank"><span
+                                        class="fab fa-instagram"></span></a></li>
+                            <li><a href="https://www.youtube.com/watch?v=fkrhn2qSK-A&t=274s" target="_blank"><span
+                                        class="fab fa-youtube"></span></a></li>
+                        </ul> -->
     <!-- main header -->
     <header class="main-header header-style-eight">
         <!-- header-top -->
@@ -155,13 +162,13 @@
                     <div class="text pull-left">
                         <!-- <p>Welcome to Bithlo for you analysis.</p> -->
                     </div>
-                    <div class="right-column pull-right">
-                        <ul class="social-links clearfix">
+                    <div class="right-column pull-right clearfix">
+                        <!-- <ul class="social-links clearfix">
                             <li><a href="https://www.instagram.com/yfsi_telangana/" target="_blank"><span
                                         class="fab fa-instagram"></span></a></li>
                             <li><a href="https://www.youtube.com/watch?v=fkrhn2qSK-A&t=274s" target="_blank"><span
                                         class="fab fa-youtube"></span></a></li>
-                        </ul>
+                        </ul> -->
                         <div class="phone-box">
                             <p><i class="fas fa-phone"></i> contact@youthforsocialimpact.in </p>
                         </div>
@@ -174,11 +181,10 @@
             <div class="auto-container">
                 <div class="outer-box clearfix">
                     <div class="logo-box pull-left">
-                        <figure class="logo"><a href="index.html"><img src="assets/images/ysi_logo.png" alt=""></a>
-                        </figure>
+                        <figure class="logo"><a href="index.html"><img src="assets/images/ysi_logo.png" alt=""></a></figure>
                     </div>
-                    <div class="menu-area pull-right clearfix">
-                        <!--Mobile Navigation Toggler-->
+                    <div class="menu-area pull-right ">
+                        
                         <div class="mobile-nav-toggler">
                             <i class="icon-bar"></i>
                             <i class="icon-bar"></i>
@@ -190,7 +196,7 @@
                                     <li><a href="#">Home</a></li>
                                     <li><a href="#about">About</a></li>
                                     <li><a href="#themes">Themes</a></li>
-                                    <!-- <li><a href="#prizes">Prizes</a></li> -->
+                                    
                                     <li><a href="#impact">Impact</a></li>
                                     <li><a href="#lastyearhighlights">Partners</a></li>
                                     <li><a href="#testimonials">Testimonials</a></li>
@@ -200,17 +206,91 @@
                         </nav>
                         <div class="nav-right-content">
                             <div class="btn-box">
-                                <a href="http://ec2-43-204-38-180.ap-south-1.compute.amazonaws.com/login"
-                                    class="theme-btn">Login</a>
+                                <a href="http://ec2-43-204-38-180.ap-south-1.compute.amazonaws.com/login" class="theme-btn">Login</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+              
+        
+        <style>
+            /* General Styling */
+            .mobile-nav-toggler {
+                display: none; /* Hide by default */
+            }
+        
+            @media (max-width: 767px) {
+                .menu-area .main-menu,
+                .menu-area .nav-right-content {
+                    display: none !important; /* Hide extended navigation */
+                }
+        
+                .mobile-nav-toggler {
+                    display: block; /* Show only the toggler */
+                    cursor: pointer;
+                    font-size: 1.5rem; /* Adjust size */
+                }
+            }
+        
+            @media (min-width: 768px) {
+                .mobile-nav-toggler {
+                    display: none; /* Hide toggler in desktop view */
+                }
+        
+                .menu-area .main-menu,
+                .menu-area .nav-right-content {
+                    display: flex; /* Show full navigation for desktop */
+                }
+            }
+        </style>
+
+
+        <style>
+        /* Hide the full navigation bar in mobile view */
+        @media (max-width: 767px) {
+        .menu-area {
+            background: none; /* Remove the blue background */
+            padding: 0; /* Remove any padding */
+            display: flex; /* Ensure proper alignment for the toggler */
+            justify-content: flex-start; /* Align toggler to the left */
+            width: auto; /* Restrict the width */
+        }
+
+        .menu-area .main-menu,
+        .menu-area .nav-right-content {
+            display: none !important; /* Hide the extended navigation */
+        }
+
+        .mobile-nav-toggler {
+            display: block;
+            cursor: pointer;
+            font-size: 1.5rem; /* Adjust size as needed */
+            padding: 10px; /* Add padding for spacing */
+            background: none; /* Remove extra background */
+            border: none; /* Ensure no borders */
+        }
+        }
+
+        /* Desktop View */
+        @media (min-width: 768px) {
+        .mobile-nav-toggler {
+            display: none; /* Hide toggler in desktop view */
+        }
+
+        .menu-area .main-menu,
+        .menu-area .nav-right-content {
+            display: flex; /* Show full navigation for desktop */
+        }
+        }
+        </style>
+
+        
+
 
         <!--sticky Header-->
-        <div class="sticky-header">
+        <!-- <div class="sticky-header">
             <div class="auto-container">
                 <div class="outer-box clearfix">
                     <figure class="sticky-logo pull-left">
@@ -218,12 +298,12 @@
                     </figure>
                     <div class="menu-area pull-right clearfix">
                         <nav class="main-menu clearfix">
-                            <!--Keep This Empty / Menu will come through Javascript-->
+                            
                         </nav>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </header>
     <!-- main-header end -->
 
@@ -231,29 +311,117 @@
     <div class="mobile-menu">
         <div class="menu-backdrop"></div>
         <div class="close-btn"><i class="fas fa-times"></i></div>
-
+    
         <nav class="menu-box">
-            <div class="nav-logo"><a href="index.html"><img src="assets/images/ysi_logo.png" alt="" title=""></a></div>
-            <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-            </div>
-            <div class="contact-info">
-                <h4>Contact Info</h4>
-                <ul>
-                    <!-- <li>Chicago 12, Melborne City, USA</li> -->
-                    <!-- <li><a href="tel:+8801682648101">+88 01682648101</a></li> -->
-                    <li><a href="mailto:contact@youthforsocialimpact.in">contact@youthforsocialimpact.in</a></li>
-                </ul>
-            </div>
-            <div class="social-links">
-                <ul class="clearfix">
-                    <li><a href="https://www.instagram.com/yfsi_telangana/"><span class="fab fa-instagram"></span></a>
-                    </li>
-                    <li><a href="https://www.youtube.com/watch?v=fkrhn2qSK-A&t=274s"><span
-                                class="fab fa-youtube"></span></a></li>
-                </ul>
+            <div class="menu-outer"><br><br><br><br>
+                <!-- Sample Menu Items -->
+                <!-- <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#themes">Themes</a></li>
+                                    
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#lastyearhighlights">Partners</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#faqs">FAQs</a></li> -->
             </div>
         </nav>
-    </div><!-- End Mobile Menu -->
+    </div>
+    
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select elements
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const closeBtn = document.querySelector('.close-btn');
+            const menuBackdrop = document.querySelector('.menu-backdrop');
+            const menuToggle = document.querySelector('.menu-toggle'); // Three-line menu icon
+            const menuLinks = document.querySelectorAll('.menu-box a');
+            const body = document.body;
+    
+            // Function to open the menu
+            function openMenu() {
+                mobileMenu.style.display = 'block'; // Show the menu
+                menuBackdrop.style.display = 'block'; // Show the backdrop
+                body.style.overflow = 'hidden'; // Prevent body scrolling
+            }
+    
+            // Function to close the menu
+            function closeMenu() {
+                mobileMenu.style.display = 'none'; // Hide the menu
+                menuBackdrop.style.display = 'none'; // Hide the backdrop
+                body.style.overflow = ''; // Allow body scrolling
+            }
+    
+            // Event listeners
+            menuToggle.addEventListener('click', openMenu); // Open menu on icon click
+            closeBtn.addEventListener('click', closeMenu); // Close menu on close button
+            menuBackdrop.addEventListener('click', closeMenu); // Close menu on backdrop click
+    
+            // Close the menu and navigate to the section on link click
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    // Smooth navigation to the target section
+                    const targetId = link.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            event.preventDefault(); // Prevent default link behavior
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                    closeMenu(); // Close the menu after navigation
+                });
+            });
+        });
+    </script>
+    
+    
+    
+    
+        
+
+    <style>
+    .contact-info ul {
+        display: block; /* Ensure the list is displayed */
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .contact-info li {
+        margin-bottom: 10px; /* Add spacing for readability */
+    }
+    
+    .contact-info a {
+        color: #333; /* Ensure link is visible */
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    
+    .contact-info a:hover {
+        text-decoration: underline;
+        color: #555;
+    }
+
+    
+    @media (max-width: 767px) {
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .contact-info ul {
+            padding: 0;
+        }
+    
+        .contact-info a {
+            font-size: 1rem;
+        }
+    }
+</style>
+<script>document.querySelector('.menu-box').classList.add('active'); // Ensure menu is activated
+</script>
+    
 
 
     <!-- banner-section -->
@@ -286,7 +454,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                     <div class="image-box">
-                        <figure class="image js-tilt" style="position: relative; left: -110px;">
+                        <figure class="image js-tilt">
                             <img src="assets/images/banner/vector_banner.png" alt="">
                         </figure>
                     </div>
@@ -294,32 +462,77 @@
             </div>
         </div>
     </section>
+    
+    <style>
+        /* General Styling */
+        .banner-style-eight {
+            padding: 50px 20px;
+        }
+    
+        .content-box h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+    
+        .content-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+    
+        .btn-box a {
+            margin-right: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    
+        .image-box {
+            text-align: center;
+        }
+    
+        .image {
+            position: relative;
+        }
+    
+        /* Desktop View (768px and above) */
+        @media (min-width: 768px) {
+            .image .js-tilt {
+                position: relative;
+                left: -110px; /* Desktop-specific offset */
+            }
+        }
+    
+        /* Mobile View (Less than 768px) */
+        @media (max-width: 767px) {
+            .image .js-tilt {
+                position: relative;
+                left: 0; /* Center the figure in mobile view */
+            }
+    
+            .banner-style-eight {
+                text-align: center;
+            }
+    
+            .content-column, .image-column {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    
     <!-- banner-section end -->
 
     <!-- about-style-two -->
     <section id="about" style="padding: 120px 20px; background-color: #f9f9f9;">
-        <h2 style="text-align: center;">About The Program</h2>
-        <div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 20px;">
-            <!-- Left Column (Video) -->
-            <div class="col-lg-6 col-md-10 col-sm-10" style="flex: 1; display: flex; align-items: center; height: auto;">
-                <div style="width: 100%; height: 100%; margin-left: 50px;"> <!-- Adjusted margin -->
-                    <iframe width="100%" height="370"
-                        src="https://player.vimeo.com/video/1040283093?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                        title="YFSI" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-    
-            <!-- Right Column (Text) -->
-            <div class="col-lg-6 col-md-12 col-sm-12 content-column" style="flex: 1;">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 20px;">About The Program</h2>
+        <div class="about-container" style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 5px;">
+            <!-- Left Column (Text) -->
+            <div class="text-column" style="flex: 1; padding: 10px; display: flex; flex-direction: column; justify-content: center;">
                 <div class="content_block_4">
                     <div class="content-box">
-                        <div class="sec-title style-two">
-                        </div>
+                        <div class="sec-title style-two"></div>
                     </div>
-                    <div class="text text-justify">
+                    <div class="text" style="text-align: justify; font-size: 1rem; line-height: 1.6;">
                         <p>This Program aims to empower India’s youth with the entrepreneurial skills and mindsets
                             needed to drive innovation and create impactful, scalable ventures. By equipping young
                             people with 21st-century skills, we enable them to address real-world challenges and
@@ -334,11 +547,133 @@
                     </div>
                 </div>
             </div>
+    
+            <!-- Right Column (Video) -->
+            <div class="video-column" style="flex: 1; display: flex; justify-content: center; padding: 10px;">
+                <iframe style="width: 100%; max-width: 500px; height: auto;" 
+                    src="https://player.vimeo.com/video/1040283093?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                    title="YFSI" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
     </section>
     
+    <style>
+    /* Remove or reduce margin/padding around the header and banner section */
+.main-header {
+    margin-bottom: 0; /* Ensure no bottom margin */
+    padding-bottom: 0; /* Remove any bottom padding */
+}
+
+.banner-style-eight {
+    margin-top: 0; /* Remove any top margin */
+    padding-top: 0; /* Remove any top padding */
+}
+
+/* Optional: Adjust specific inner containers if extra spacing persists */
+.header-lower {
+    padding-bottom: 0; /* Remove padding between header-lower and next section */
+}
+
+.banner-style-eight .auto-container {
+    padding-top: 180px; /* Add minimal padding for clarity (optional) */
+}
+</style>
+
+    <style>
+        /* Mobile view adjustments */
+        @media (max-width: 767px) {
+            .about-container {
+                flex-direction: column; /* Stack the elements vertically */
+            }
+    
+            .text-column {
+                order: 1; /* Display the text first */
+            }
+    
+            .video-column {
+                order: 2; /* Display the video below the text */
+            }
+        }
+    </style>
     
     
+    <!-- <style>
+        /* General Styling */
+        #about {
+            padding: 80px 15px;
+            background-color: #f9f9f9;
+        }
+    
+        #about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+    
+        #about iframe {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+    
+        #about .text {
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+    
+        /* Desktop View (768px and above) */
+        @media (min-width: 768px) {
+            .about-container {
+                flex-direction: row;
+                align-items: stretch;
+            }
+    
+            .video-column, .text-column {
+                flex: 1 1 50%;
+            }
+    
+            #about h2 {
+                font-size: 2.5rem;
+            }
+    
+            #about iframe {
+                height: 100%; /* Matches the height of the text column */
+            }
+    
+            .text-column {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    
+        /* Mobile View (Less than 768px) */
+        @media (max-width: 767px) {
+            .about-container {
+                flex-direction: column;
+            }
+    
+            .video-column, .text-column {
+                flex: 1 1 100%;
+            }
+    
+            #about {
+                padding: 50px 10px;
+            }
+    
+            #about .text {
+                padding: 0 10px;
+            }
+        }
+    </style> -->
+
+
+
+
+
     <!-- about-style-two end -->
 
     <!-- benefits-style-two -->
@@ -857,6 +1192,80 @@
         </div>
     </section>
     
+    <style>
+    .ideas-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    
+    .idea-card {
+        width: calc(50% - 20px); /* Two cards per row with spacing */
+        background: #ffffff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+    
+    .idea-card .team-leader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #cc8b08;
+        color: #ffffff;
+        padding: 5px 15px;
+        border-top-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .idea-info h4 {
+        color: #333;
+        margin: 15px 0 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .idea-info p {
+        margin: 5px 0;
+        color: #555;
+    }
+    
+    .idea-brief p {
+        margin-top: 15px;
+        color: #666;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    /* Responsive design for mobile screens */
+    @media (max-width: 768px) {
+        .idea-card {
+            width: 100%; /* Make cards occupy full width in mobile view */
+        }
+    
+        .college-details {
+            flex-direction: column; /* Stack icons and text vertically */
+            align-items: flex-start; /* Align items to the left */
+        }
+    
+        .college-details i {
+            margin-bottom: 5px; /* Add some spacing between icons and text */
+        }
+    
+        .idea-info h4 {
+            font-size: 16px; /* Slightly reduce font size for smaller screens */
+        }
+    
+        .idea-brief p {
+            font-size: 13px; /* Adjust text size for readability on mobile */
+        }
+    }
+   </style>    
 
 
     <!-- <section class="student-ideas-card-style" id="student-ideas">
@@ -1650,7 +2059,7 @@
 
 
 
-
+       <br><br>
     <section class="testimonial-style-three" id="testimonials">
         <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-27.png);"></div>
         <div class="auto-container">
@@ -1676,6 +2085,10 @@
                 <div class="col-lg-8 col-md-12 col-sm-12 content-column">
                     <div class="testimonial-content">
                         <div class="single-item-carousel owl-carousel owl-theme owl-dots-none">
+                            <!-- <div class="owl-nav">
+                                <button type="button" class="owl-prev"><i class="fas fa-chevron-left"></i></button>
+                                <button type="button" class="owl-next"><i class="fas fa-chevron-right"></i></button>
+                            </div> -->
                             <div class="inner-box">
                                 <div class=""><i class=""></i></div>
                                 <div class="text">
@@ -1711,7 +2124,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team</h3>
+                                    <h3>Team 1</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -1755,7 +2168,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team</h3>
+                                    <h3>Team 2</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -1803,7 +2216,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team</h3>
+                                    <h3>Team 3</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -1852,7 +2265,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team</h3>
+                                    <h3>Team 4</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -1897,7 +2310,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team</h3>
+                                    <h3>Team 5</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -1908,12 +2321,35 @@
                                 </div>
                             </div>
                             <!-- Add the rest of the testimonials -->
+                            <div class="inner-box">
+                                <div class=""><i class=""></i></div>
+                                <div class="text">
+                                <div style="padding:56.25% 0 0 0;position:relative;">
+                                    <iframe src="https://player.vimeo.com/video/1034068015?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                                        frameborder="0" 
+                                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                                        style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                                        title="Team 6"></iframe>
+                                </div>
+                                <script src="https://player.vimeo.com/api/player.js"></script>
+                            </div>
+                            <div class="author-info">
+                                <h3>Team 6</h3>
+                                <ul class="rating clearfix">
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
     <!-- <link rel="stylesheet" href="path/to/owl.carousel.min.css">
     <link rel="stylesheet" href="path/to/owl.theme.default.min.css">
     <script src="path/to/jquery.min.js"></script>
@@ -2096,7 +2532,7 @@
                                                 <div class="col-lg-5 text-center">
                                                     <h3 id="name" class="text-uppercase text-center lang-change"
                                                         data-lang="impact-india"
-                                                        style="color:#8dd365; font-size: 40px; padding-bottom: 30px;">
+                                                        style="color:#8dd365; font-size: 34px; padding-bottom: 30px;">
                                                         Telangana</h3>
                                                 </div>
                                                 <br>
@@ -11430,35 +11866,81 @@
                                             <!-- Right Side Blocks -->
                                             <div class="counter-block-one py-20">
                                                 <div class="count-outer count-box">
-                                                    <span class="count-text" data-speed="1500"
-                                                        data-stop="33">0</span><span></span>
+                                                    <span class="count-text" data-speed="1500" data-stop="33">0</span>
                                                 </div>
                                                 <h4>District</h4>
                                             </div>
-
-
                                             <div class="counter-block-one py-20">
                                                 <div class="count-outer count-box">
-                                                    <span class="count-text" data-speed="1500"
-                                                        data-stop="490">0</span><span></span>
-
-                                                    <br>
+                                                    <span class="count-text" data-speed="1500" data-stop="490">0</span>
                                                 </div>
                                                 <h4>Institutions</h4>
                                             </div>
-
-
                                             <div class="counter-block-one py-20">
                                                 <div class="count-outer count-box">
-                                                    <span class="count-text" data-speed="1500"
-                                                        data-stop="11823">0</span><span></span>
+                                                    <span class="count-text" data-speed="1500" data-stop="11823">0</span>
                                                 </div>
                                                 <h4>Youth Participants</h4>
                                             </div>
                                         </div>
-
-
-
+                                        <style>
+                                            /* Center align the left-blocks elements for mobile view */
+                                            @media (max-width: 5000px) {
+                                                .left-blocks {
+                                                    display: flex; /* Use Flexbox for alignment */
+                                                    flex-direction: column; /* Stack items vertically */
+                                                    align-items: center; /* Center align horizontally */
+                                                    margin: 0 auto; /* Center the entire container */
+                                                    margin-right: 51px;
+                                                }
+                                        
+                                                .counter-block-one {
+                                                    width: 100%; /* Ensure blocks take up full width */
+                                                    max-width: 300px; /* Optional: Set max width for better control */
+                                                    text-align: center; /* Center the content inside each block */
+                                                    margin-bottom: 20px; /* Add spacing between blocks */
+                                                }
+                                        
+                                                /* Adjust padding for smaller screens */
+                                                .counter-block-one h4 {
+                                                    font-size: 16px; /* Adjust heading size */
+                                                }
+                                        
+                                                .counter-block-one .count-outer {
+                                                    font-size: 24px; /* Adjust count size */
+                                                }
+                                            }
+                                        </style>
+                                        
+                                        <style>
+                                            /* Center align the right-blocks elements for mobile view */
+                                            @media (max-width: 5000px) {
+                                                .right-blocks {
+                                                    display: flex; /* Use Flexbox */
+                                                    flex-direction: column; /* Stack items vertically */
+                                                    align-items: center; /* Center align horizontally */
+                                                    margin: 0 auto; /* Center the entire container */
+                                                    margin-right: 51px;
+                                                }
+                                        
+                                                .right-blocks .counter-block-one {
+                                                    width: 100%; /* Ensure blocks take up full width */
+                                                    max-width: 300px; /* Optional: Set a max width */
+                                                    text-align: center; /* Center the content inside each block */
+                                                    margin-bottom: 20px; /* Add spacing between blocks */
+                                                }
+                                        
+                                                /* Adjust padding for smaller screens */
+                                                .right-blocks .counter-block-one h4 {
+                                                    font-size: 16px; /* Adjust heading size */
+                                                }
+                                        
+                                                .right-blocks .count-outer {
+                                                    font-size: 24px; /* Adjust counter size */
+                                                }
+                                            }
+                                        </style>
+                                                                                
                                     </div>
                                 </div>
                             </div>
@@ -11471,7 +11953,7 @@
         </div>
         </div>
         </div>
-    </section>
+    </section>    
     <!-- pricing-section end -->
 
     <!-- clients-section -->
@@ -11870,6 +12352,27 @@
             });
         });
     </script>
+
+<style>
+    @media (max-width: 767px) {
+        /* Remove margin or padding between sections */
+        #lastyearhighlights {
+            margin-bottom: 0; /* Remove bottom margin */
+            padding-bottom: 0; /* Remove bottom padding */
+        }
+
+        #faqs {
+            margin-top: 0; /* Remove top margin */
+            padding-top: 0; /* Remove top padding */
+        }
+
+        /* Optional: Adjust general section padding for better compactness */
+        .sec-pad {
+            padding: 10px 0; /* Reduce padding for smaller screens */
+        }
+    }
+</style>
+
     
     
     
@@ -11895,10 +12398,63 @@
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
                     </ul>
+                    <div class="right-column pull-right clearfix">
+                        <ul class="social-links clearfix">
+                            <li><a href="https://www.instagram.com/yfsi_telangana/" target="_blank"><span
+                                        class="fab fa-instagram"></span></a></li>
+                            <li><a href="https://www.youtube.com/watch?v=fkrhn2qSK-A&t=274s" target="_blank"><span
+                                        class="fab fa-youtube"></span></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
+    
+    <style>
+        /* Default desktop styling */
+        .main-footer .footer-bottom .bottom-inner {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .footer-nav {
+            display: flex;
+            gap: 10px;
+        }
+    
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+    
+        /* Mobile view adjustments */
+        @media screen and (max-width: 768px) {
+            .main-footer .footer-bottom .bottom-inner {
+                flex-wrap: wrap;
+                text-align: center;
+            }
+    
+            .footer-nav {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+    
+            .social-links {
+                justify-content: center;
+                width: 100%;
+            }
+    
+            .right-column {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+    
     <!-- main-footer end -->
 
 

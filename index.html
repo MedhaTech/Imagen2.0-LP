@@ -154,21 +154,17 @@
                                         class="fab fa-youtube"></span></a></li>
                         </ul> -->
     <!-- main header -->
+    
+    
     <header class="main-header header-style-eight">
-        <!-- header-top -->
+        
         <div class="header-top">
             <div class="auto-container">
                 <div class="top-inner clearfix">
-                    <div class="text pull-left">
-                        <!-- <p>Welcome to Bithlo for you analysis.</p> -->
-                    </div>
+                    <!-- <div class="text pull-left">
+                        <p>Welcome to Bithlo for you analysis.</p>
+                    </div> -->
                     <div class="right-column pull-right clearfix">
-                        <!-- <ul class="social-links clearfix">
-                            <li><a href="https://www.instagram.com/yfsi_telangana/" target="_blank"><span
-                                        class="fab fa-instagram"></span></a></li>
-                            <li><a href="https://www.youtube.com/watch?v=fkrhn2qSK-A&t=274s" target="_blank"><span
-                                        class="fab fa-youtube"></span></a></li>
-                        </ul> -->
                         <div class="phone-box">
                             <p><i class="fas fa-phone"></i> contact@youthforsocialimpact.in </p>
                         </div>
@@ -176,7 +172,7 @@
                 </div>
             </div>
         </div>
-        <!-- header-lower -->
+      
         <div class="header-lower">
             <div class="auto-container">
                 <div class="outer-box clearfix">
@@ -215,6 +211,100 @@
         </div>
               
         
+            <style>
+    /* General mobile styles */
+@media screen and (max-width: 768px) {
+    /* Header styling */
+    .main-header.header-style-eight {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 15px;
+    }
+
+    /* Align logo and mobile nav toggler horizontally */
+    .header-lower {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;  /* Ensure the header takes the full width */
+    }
+
+    .logo-box {
+        flex: 0 1 auto; /* Prevent logo from shrinking */
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-box img {
+        max-width: 80px; /* Adjust logo size */
+        height: auto;
+    }
+
+    /* Mobile nav toggler */
+    .mobile-nav-toggler {
+        display: block;
+        cursor: pointer;
+    }
+
+    /* Adjust menu area to be side by side with logo */
+    .menu-area {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Hide desktop navigation */
+    .menu-area .main-menu {
+        display: none;
+    }
+
+    /* Show navigation when toggled */
+    .menu-area.active .main-menu {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        z-index: 999;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-menu .navigation {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 15px;
+    }
+
+    .main-menu .navigation li {
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .main-menu .navigation li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggler = document.querySelector('.mobile-nav-toggler');
+        const menuArea = document.querySelector('.menu-area');
+
+        toggler.addEventListener('click', function () {
+            menuArea.classList.toggle('active');
+        });
+    });
+</script>
+
+
+
+
+
+
         <style>
             /* General Styling */
             .mobile-nav-toggler {
@@ -425,6 +515,21 @@
 
 
     <!-- banner-section -->
+    <style>
+        @media screen and (max-width: 768px) {
+            .btn-box {
+                display: flex;
+                flex-direction: column; /* Stack buttons vertically */
+                gap: 15px; /* Add vertical gap between buttons */
+            }
+    
+            .btn-box a {
+                width: 100%; /* Make buttons full width for better usability on mobile */
+                text-align: center; /* Center align the text */
+            }
+        }
+    </style>
+    
     <section class="banner-style-eight">
         <div class="pattern-layer">
             <div class="pattern-1" style="background-image: url(assets/images/shape/shape-70.png);"></div>
@@ -443,7 +548,7 @@
                         <p class="text-justify">Empowering the youth with 21st-century skills to co-create innovative,
                             scalable, and sustainable solutions that address local challenges. By fostering an
                             entrepreneurial mindset, we enable the youth to lead impactful ventures that solve
-                            real-world challenges and drive social and economic transformation. </p>
+                            real-world challenges and drive social and economic transformation.</p>
                         <div class="btn-box">
                             <a href="http://ec2-43-204-38-180.ap-south-1.compute.amazonaws.com/login"
                                 class="theme-btn btn-eleven">Login</a>
@@ -462,6 +567,45 @@
             </div>
         </div>
     </section>
+    
+    <style>
+                        /* General Text Styling for the Banner Section */
+
+                        .banner-style-eight .content-box h2 {
+    font-size: 2.5rem; /* Adjust heading size */
+    line-height: 1.3; /* Adjust line height for better readability */
+    margin-bottom: 15px; /* Add spacing below the heading */
+}
+
+.banner-style-eight .content-box h3 {
+    font-size: 1.8rem; /* Adjust subheading size */
+    line-height: 1.4; /* Adjust line height */
+    margin-bottom: 10px; /* Add spacing below the subheading */
+    letter-spacing: 0.5px; /* Slightly increase letter spacing */
+}
+
+.banner-style-eight .content-box p {
+    font-size: 1rem; /* Adjust paragraph text size */
+    line-height: 1.6; /* Improve readability by increasing line spacing */
+    margin-bottom: 20px; /* Add spacing below the paragraph */
+    letter-spacing: 0.3px; /* Slightly increase letter spacing for clarity */
+    text-align: justify; /* Keep text justified */
+}
+
+/* Adjust button spacing */
+.banner-style-eight .btn-box a {
+    margin-right: 10px; /* Add space between buttons */
+    padding: 10px 20px; /* Adjust button padding */
+    font-size: 1rem; /* Adjust button text size */
+    text-transform: capitalize; /* Adjust text transformation if needed */
+}
+
+/* Adjust spacing around the entire section */
+.banner-style-eight {
+    padding: 40px 0; /* Adjust top and bottom padding of the section */
+}
+
+    </style>
     
     <style>
         /* General Styling */
@@ -1038,7 +1182,7 @@
                 <div class="idea-card">
                     <div class="team-leader">Kottapeta Sanjeev Kumar Goud</div><br>
                     <div class="idea-info">
-                        <div class="college-details" style="display: flex; align-items: center; gap: 15px;">
+                        <div class="college-details" style="display: flex; align-items: center; gap: 5px;"><br>
                             <i class="fa fa-user" 
                             style="font-size: 15px; color: orange; padding: 2px;"></i> 
                             <span style="font-size: 15px; color: #0f0f0f; padding: 2px;">Kottapeta Sanjeev Kumar Goud</span>
@@ -2086,8 +2230,8 @@
                     <div class="testimonial-content">
                         <div class="single-item-carousel owl-carousel owl-theme owl-dots-none">
                             <!-- <div class="owl-nav">
-                                <button type="button" class="owl-prev"><i class="fas fa-chevron-left"></i></button>
-                                <button type="button" class="owl-next"><i class="fas fa-chevron-right"></i></button>
+                                <button type="button" class="owl-prev" style="margin-left: 70px;"><i class="fas fa-chevron-left"></i></button>
+                                <button type="button" class="owl-next" style="margin-left: -70px;"><i class="fas fa-chevron-right"></i></button>
                             </div> -->
                             <div class="inner-box">
                                 <div class=""><i class=""></i></div>
@@ -2349,14 +2493,220 @@
             </div>
         </div>
     </section>
+
+    <style>
+    /* Default desktop styles */
+.testimonial-style-three .owl-prev {
+    left: -130px; /* Default position for desktop */
+}
+.testimonial-style-three .owl-next {
+    right: 10px; /* Default position for desktop */
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 768px) {
+    .testimonial-style-three .owl-prev {
+        left: -100px !important; /* Mobile position */
+    }
+    .testimonial-style-three .owl-next {
+        right: 20px !important; /* Mobile position */
+    }
+}
+
+/* Additional desktop adjustments for clarity */
+@media screen and (min-width: 769px) {
+    .testimonial-style-three .owl-prev {
+        left: -130px !important; /* Ensure desktop styles apply */
+    }
+    .testimonial-style-three .owl-next {
+        right: 10px !important; /* Ensure desktop styles apply */
+    }
+}
+</style>
+
+<script>
+    $(document).ready(function(){
+    $(".single-item-carousel").owlCarousel({
+        items: 1,
+        loop: true,
+        nav: true,
+        dots: false,
+        navText: [
+            '<i class="fas fa-chevron-left"></i>',
+            '<i class="fas fa-chevron-right"></i>'
+        ],
+        onInitialized: function() {
+            $('.testimonial-style-three .owl-prev').css('left', '9000px');
+            $('.testimonial-style-three .owl-next').css('right', '-5000px');
+        }
+    });
+});
+
+    </script>
+    
+    <style>
+        /* Responsive adjustments for mobile view */
+@media screen and (max-width: 768px) {
+    .testimonial-style-three .owl-prev,
+    .testimonial-style-three .owl-next {
+        width: 30px; /* Smaller arrow size for mobile */
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .testimonial-style-three .owl-prev {
+        left: -90px; /* Move left button slightly more to the left */
+    }
+
+    .testimonial-style-three .owl-next {
+        right: -10px; /* Move right button slightly more to the left */
+    }
+}
+
+        </style>
+    <style>
+ 
+         /* General styles for arrows */
+.testimonial-style-three .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.testimonial-style-three .owl-prev,
+.testimonial-style-three .owl-next {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    pointer-events: all;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+/* Hover effect for arrows */
+.testimonial-style-three .owl-prev:hover,
+.testimonial-style-three .owl-next:hover {
+    background-color: #555;
+}
+
+/* Positioning arrows for desktop view */
+.testimonial-style-three .owl-prev {
+    position: absolute;
+    left: -80px;
+}
+
+.testimonial-style-three .owl-next {
+    position: absolute;
+    right: 10px;
+}
+
+/* Responsive adjustments for mobile view */
+@media screen and (max-width: 768px) {
+    .testimonial-style-three .owl-prev,
+    .testimonial-style-three .owl-next {
+        width: 30px; /* Smaller arrow size for mobile */
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .testimonial-style-three .owl-prev {
+        left: 30px; /* Adjust position for smaller screens */
+    }
+
+    .testimonial-style-three .owl-next {
+        right: 5px; /* Adjust position for smaller screens */
+    }
+}
+
+/* Adjustments for extra-large screens */
+@media screen and (min-width: 1200px) {
+    .testimonial-style-three .owl-prev {
+        left: -20px; /* Offset arrows further on larger screens */
+    }
+
+    .testimonial-style-three .owl-next {
+        right: -20px;
+    }
+}
+
+    </style>
+
+    <script>
+        $(document).ready(function(){
+    $(".single-item-carousel").owlCarousel({
+        items: 1,
+        loop: true,
+        nav: true,
+        dots: false,
+        navText: [
+            '<i class="fas fa-chevron-left"></i>',
+            '<i class="fas fa-chevron-right"></i>'
+        ]
+    });
+});
+
+    </script>
+
+    <style>
+        /* Default styles for the testimonial cards */
+.testimonial-style-three .inner-box {
+    padding: 20px;
+    font-size: 16px;
+}
+
+/* Adjust styles for mobile view */
+@media screen and (max-width: 768px) {
+    .testimonial-style-three .inner-box {
+        padding: 10px; /* Reduce padding */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    .testimonial-style-three .inner-box .text {
+        max-height: 250px; /* Limit the height */
+        overflow-y: auto; /* Add scroll for overflowing content */
+    }
+
+    .testimonial-style-three .author-info {
+        font-size: 12px; /* Reduce font size of author info */
+    }
+
+    iframe {
+        height: 200px; /* Adjust iframe height */
+    }
+}
+    </style>
+
+    
     
     <!-- <link rel="stylesheet" href="path/to/owl.carousel.min.css">
     <link rel="stylesheet" href="path/to/owl.theme.default.min.css">
     <script src="path/to/jquery.min.js"></script>
     <script src="path/to/owl.carousel.min.js"></script> -->
     
-   
-    
+   <style>
+    @media (max-width: 768px) {
+        html, body {
+          overflow-x: hidden;
+        }
+        
+        .your-container {
+          width: 100%;
+        }
+      }
+    </style>
     
     
     
@@ -11957,14 +12307,15 @@
     <!-- pricing-section end -->
 
     <!-- clients-section -->
+    
     <section class="clients-style-two centred" id="lastyearhighlights">
         <div class="auto-container">
             <div class="sec-title style-two">
                 <h2>Key Partners</h2>
                 <!-- <h2>Trusted by creative organizations</h2> -->
                 <!-- <div class="divider" style="background-image: url(assets/images/icons/divider-1.png);"></div> -->
-            </div>
-            <div class="clients-carousel owl-carousel owl-theme owl-nav-none dots-style-one">
+            </div><br><br><br><br><br>
+            <div class="clients-carousel owl-carousel owl-theme owl-nav dots-style-one">
                 <div class="clients-logo-box">
                     <a><img src="assets/images/partners/UNICEF Logo.png" alt=""></a>
                 </div>
@@ -11990,7 +12341,93 @@
             </div>
         </div>
     </section>
+
+    <script>
+        $(document).ready(function () {
+    $(".clients-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true, // Enable navigation (arrows)
+        dots: true, // Keep dots if required
+        navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"], // Custom arrow icons
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    });
+});
+
+    </script>
+
+    <style>
+    .owl-nav {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 70%; /* Lower the nav to avoid overlapping */
+    width: 100%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.owl-nav .owl-prev,
+.owl-nav .owl-next {
+    pointer-events: auto;
+    background-color: #007bff; /* Customize background */
+    color: #fff; /* Customize arrow color */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    z-index: 2; /* Ensure arrows appear above other elements */
+}
+
+.owl-nav .owl-prev:hover,
+.owl-nav .owl-next:hover {
+    background-color: #0056b3; /* Hover effect */
+}
+
+.owl-nav .owl-prev {
+    left: -20px; /* Adjust left arrow position */
+}
+
+.owl-nav .owl-next {
+    right: -20px; /* Adjust right arrow position */
+}
+
+.owl-nav .fas {
+    font-size: 16px; /* Arrow icon size */
+}
+
+/* Ensure title is visible */
+.sec-title {
+    position: relative;
+    z-index: 3; /* Keep title above arrows */
+    margin-bottom: 20px; /* Ensure spacing between title and carousel */
+    text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+    .sec-title {
+        font-size: 18px; /* Adjust font size for smaller screens */
+        margin-bottom: 15px;
+    }
+}
+
+    </style>
     <!-- clients-section end -->
+
     
 
     <!-- faq-style-two -->
@@ -12321,6 +12758,30 @@
             </div>
         </div>
     </section>
+
+    <style>
+        @media screen and (max-width: 768px) {
+            /* Remove the padding between the two columns */
+            .faq-style-two .image-column, 
+            .faq-style-two .content-column {
+                padding-top: 0 !important; /* Ensure no top padding */
+                margin-top: 0 !important; /* Ensure no top margin */
+            }
+    
+            /* Make the FAQ items stack vertically */
+            .faq-style-two .row {
+                display: flex;
+                flex-direction: column; /* Stack columns vertically */
+                align-items: stretch; /* Make them full width */
+            }
+    
+            /* Adjust accordion styles for better spacing */
+            .faq-style-two .accordion-box {
+                margin-bottom: 0; /* Remove additional margin between FAQ boxes */
+            }
+        }
+    </style>
+    
     
     <script>
         // JavaScript for FAQ toggle functionality
@@ -12394,10 +12855,10 @@
                     <div class="copyright pull-left">
                         <p>Copyright &copy; <a href="#">imaGen Ventures</a>, All Rights Reserved.</p>
                     </div>
-                    <ul class="footer-nav pull-right clearfix">
+                    <!-- <ul class="footer-nav pull-right clearfix">
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
-                    </ul>
+                    </ul> -->
                     <div class="right-column pull-right clearfix">
                         <ul class="social-links clearfix">
                             <li><a href="https://www.instagram.com/yfsi_telangana/" target="_blank"><span

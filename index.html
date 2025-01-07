@@ -146,22 +146,25 @@
     <!-- preloader end -->
 
 
-    <!-- main header -->
-    <header class="main-header header-style-eight">
-        <!-- header-top -->
-        <div class="header-top">
-            <div class="auto-container">
-                <div class="top-inner clearfix">
-                    <div class="text pull-left">
-                        <!-- <p>Welcome to Bithlo for you analysis.</p> -->
-                    </div>
-                    <div class="right-column pull-right">
-                        <ul class="social-links clearfix">
+
+    <!-- <ul class="social-links clearfix">
                             <li><a href="https://www.instagram.com/yfsi_telangana/" target="_blank"><span
                                         class="fab fa-instagram"></span></a></li>
                             <li><a href="https://www.youtube.com/watch?v=fkrhn2qSK-A&t=274s" target="_blank"><span
                                         class="fab fa-youtube"></span></a></li>
-                        </ul>
+                        </ul> -->
+    <!-- main header -->
+    
+    
+    <header class="main-header header-style-eight">
+        
+        <div class="header-top">
+            <div class="auto-container">
+                <div class="top-inner clearfix">
+                    <!-- <div class="text pull-left">
+                        <p>Welcome to Bithlo for you analysis.</p>
+                    </div> -->
+                    <div class="right-column pull-right clearfix">
                         <div class="phone-box">
                             <p><i class="fas fa-phone"></i> contact@youthforsocialimpact.in </p>
                         </div>
@@ -169,16 +172,15 @@
                 </div>
             </div>
         </div>
-        <!-- header-lower -->
+      
         <div class="header-lower">
             <div class="auto-container">
                 <div class="outer-box clearfix">
                     <div class="logo-box pull-left">
-                        <figure class="logo"><a href="index.html"><img src="assets/images/ysi_logo.png" alt=""></a>
-                        </figure>
+                        <figure class="logo"><a href="index.html"><img src="assets/images/ysi_logo.png" alt=""></a></figure>
                     </div>
-                    <div class="menu-area pull-right clearfix">
-                        <!--Mobile Navigation Toggler-->
+                    <div class="menu-area pull-right ">
+                        
                         <div class="mobile-nav-toggler">
                             <i class="icon-bar"></i>
                             <i class="icon-bar"></i>
@@ -190,7 +192,7 @@
                                     <li><a href="#">Home</a></li>
                                     <li><a href="#about">About</a></li>
                                     <li><a href="#themes">Themes</a></li>
-                                    <!-- <li><a href="#prizes">Prizes</a></li> -->
+                                    
                                     <li><a href="#impact">Impact</a></li>
                                     <li><a href="#lastyearhighlights">Partners</a></li>
                                     <li><a href="#testimonials">Testimonials</a></li>
@@ -200,17 +202,185 @@
                         </nav>
                         <div class="nav-right-content">
                             <div class="btn-box">
-                                <a href="http://ec2-43-204-38-180.ap-south-1.compute.amazonaws.com/login"
-                                    class="theme-btn">Login</a>
+                                <a href="http://ec2-43-204-38-180.ap-south-1.compute.amazonaws.com/login" class="theme-btn">Login</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+              
+        
+            <style>
+    /* General mobile styles */
+@media screen and (max-width: 768px) {
+    /* Header styling */
+    .main-header.header-style-eight {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 15px;
+    }
+
+    /* Align logo and mobile nav toggler horizontally */
+    .header-lower {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;  /* Ensure the header takes the full width */
+    }
+
+    .logo-box {
+        flex: 0 1 auto; /* Prevent logo from shrinking */
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-box img {
+        max-width: 80px; /* Adjust logo size */
+        height: auto;
+    }
+
+    /* Mobile nav toggler */
+    .mobile-nav-toggler {
+        display: block;
+        cursor: pointer;
+    }
+
+    /* Adjust menu area to be side by side with logo */
+    .menu-area {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Hide desktop navigation */
+    .menu-area .main-menu {
+        display: none;
+    }
+
+    /* Show navigation when toggled */
+    .menu-area.active .main-menu {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        z-index: 999;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-menu .navigation {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 15px;
+    }
+
+    .main-menu .navigation li {
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .main-menu .navigation li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggler = document.querySelector('.mobile-nav-toggler');
+        const menuArea = document.querySelector('.menu-area');
+
+        toggler.addEventListener('click', function () {
+            menuArea.classList.toggle('active');
+        });
+    });
+</script>
+
+
+
+
+
+
+        <style>
+            /* General Styling */
+            .mobile-nav-toggler {
+                display: none; /* Hide by default */
+            }
+        
+            @media (max-width: 767px) {
+                .menu-area .main-menu,
+                .menu-area .nav-right-content {
+                    display: none !important; /* Hide extended navigation */
+                }
+        
+                .mobile-nav-toggler {
+                    display: block; /* Show only the toggler */
+                    cursor: pointer;
+                    font-size: 1.5rem; /* Adjust size */
+                }
+            }
+        
+            @media (min-width: 768px) {
+                .mobile-nav-toggler {
+                    display: none; /* Hide toggler in desktop view */
+                }
+        
+                .menu-area .main-menu,
+                .menu-area .nav-right-content {
+                    display: flex; /* Show full navigation for desktop */
+                }
+            }
+        </style>
+
+
+        <style>
+        /* Hide the full navigation bar in mobile view */
+        @media (max-width: 767px) {
+        .menu-area {
+            background: none; /* Remove the blue background */
+            padding: 0; /* Remove any padding */
+            display: flex; /* Ensure proper alignment for the toggler */
+            justify-content: flex-start; /* Align toggler to the left */
+            width: auto; /* Restrict the width */
+        }
+
+        .menu-area .main-menu,
+        .menu-area .nav-right-content {
+            display: none !important; /* Hide the extended navigation */
+        }
+
+        .mobile-nav-toggler {
+            display: block;
+            cursor: pointer;
+            font-size: 1.5rem; /* Adjust size as needed */
+            padding: 10px; /* Add padding for spacing */
+            background: none; /* Remove extra background */
+            border: none; /* Ensure no borders */
+        }
+        }
+
+        /* Desktop View */
+        @media (min-width: 768px) {
+        .mobile-nav-toggler {
+            display: none; /* Hide toggler in desktop view */
+        }
+
+        .menu-area .main-menu,
+        .menu-area .nav-right-content {
+            display: flex; /* Show full navigation for desktop */
+        }
+        }
+        </style>
+
+        
+
 
         <!--sticky Header-->
-        <div class="sticky-header">
+        <!-- <div class="sticky-header">
             <div class="auto-container">
                 <div class="outer-box clearfix">
                     <figure class="sticky-logo pull-left">
@@ -218,12 +388,12 @@
                     </figure>
                     <div class="menu-area pull-right clearfix">
                         <nav class="main-menu clearfix">
-                            <!--Keep This Empty / Menu will come through Javascript-->
+                            
                         </nav>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </header>
     <!-- main-header end -->
 
@@ -231,32 +401,135 @@
     <div class="mobile-menu">
         <div class="menu-backdrop"></div>
         <div class="close-btn"><i class="fas fa-times"></i></div>
-
+    
         <nav class="menu-box">
-            <div class="nav-logo"><a href="index.html"><img src="assets/images/ysi_logo.png" alt="" title=""></a></div>
-            <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-            </div>
-            <div class="contact-info">
-                <h4>Contact Info</h4>
-                <ul>
-                    <!-- <li>Chicago 12, Melborne City, USA</li> -->
-                    <!-- <li><a href="tel:+8801682648101">+88 01682648101</a></li> -->
-                    <li><a href="mailto:contact@youthforsocialimpact.in">contact@youthforsocialimpact.in</a></li>
-                </ul>
-            </div>
-            <div class="social-links">
-                <ul class="clearfix">
-                    <li><a href="https://www.instagram.com/yfsi_telangana/"><span class="fab fa-instagram"></span></a>
-                    </li>
-                    <li><a href="https://www.youtube.com/watch?v=fkrhn2qSK-A&t=274s"><span
-                                class="fab fa-youtube"></span></a></li>
-                </ul>
+            <div class="menu-outer"><br><br><br><br>
+                <!-- Sample Menu Items -->
+                <!-- <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#themes">Themes</a></li>
+                                    
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#lastyearhighlights">Partners</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#faqs">FAQs</a></li> -->
             </div>
         </nav>
-    </div><!-- End Mobile Menu -->
+    </div>
+    
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select elements
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const closeBtn = document.querySelector('.close-btn');
+            const menuBackdrop = document.querySelector('.menu-backdrop');
+            const menuToggle = document.querySelector('.menu-toggle'); // Three-line menu icon
+            const menuLinks = document.querySelectorAll('.menu-box a');
+            const body = document.body;
+    
+            // Function to open the menu
+            function openMenu() {
+                mobileMenu.style.display = 'block'; // Show the menu
+                menuBackdrop.style.display = 'block'; // Show the backdrop
+                body.style.overflow = 'hidden'; // Prevent body scrolling
+            }
+    
+            // Function to close the menu
+            function closeMenu() {
+                mobileMenu.style.display = 'none'; // Hide the menu
+                menuBackdrop.style.display = 'none'; // Hide the backdrop
+                body.style.overflow = ''; // Allow body scrolling
+            }
+    
+            // Event listeners
+            menuToggle.addEventListener('click', openMenu); // Open menu on icon click
+            closeBtn.addEventListener('click', closeMenu); // Close menu on close button
+            menuBackdrop.addEventListener('click', closeMenu); // Close menu on backdrop click
+    
+            // Close the menu and navigate to the section on link click
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    // Smooth navigation to the target section
+                    const targetId = link.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            event.preventDefault(); // Prevent default link behavior
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                    closeMenu(); // Close the menu after navigation
+                });
+            });
+        });
+    </script>
+    
+    
+    
+    
+        
+
+    <style>
+    .contact-info ul {
+        display: block; /* Ensure the list is displayed */
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .contact-info li {
+        margin-bottom: 10px; /* Add spacing for readability */
+    }
+    
+    .contact-info a {
+        color: #333; /* Ensure link is visible */
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    
+    .contact-info a:hover {
+        text-decoration: underline;
+        color: #555;
+    }
+
+    
+    @media (max-width: 767px) {
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .contact-info ul {
+            padding: 0;
+        }
+    
+        .contact-info a {
+            font-size: 1rem;
+        }
+    }
+</style>
+<script>document.querySelector('.menu-box').classList.add('active'); // Ensure menu is activated
+</script>
+    
 
 
     <!-- banner-section -->
+    <style>
+        @media screen and (max-width: 768px) {
+            .btn-box {
+                display: flex;
+                flex-direction: column; /* Stack buttons vertically */
+                gap: 15px; /* Add vertical gap between buttons */
+            }
+    
+            .btn-box a {
+                width: 100%; /* Make buttons full width for better usability on mobile */
+                text-align: center; /* Center align the text */
+            }
+        }
+    </style>
+    
     <section class="banner-style-eight">
         <div class="pattern-layer">
             <div class="pattern-1" style="background-image: url(assets/images/shape/shape-70.png);"></div>
@@ -275,7 +548,7 @@
                         <p class="text-justify">Empowering the youth with 21st-century skills to co-create innovative,
                             scalable, and sustainable solutions that address local challenges. By fostering an
                             entrepreneurial mindset, we enable the youth to lead impactful ventures that solve
-                            real-world challenges and drive social and economic transformation. </p>
+                            real-world challenges and drive social and economic transformation.</p>
                         <div class="btn-box">
                             <a href="http://ec2-43-204-38-180.ap-south-1.compute.amazonaws.com/login"
                                 class="theme-btn btn-eleven">Login</a>
@@ -286,7 +559,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                     <div class="image-box">
-                        <figure class="image js-tilt" style="position: relative; left: -110px;">
+                        <figure class="image js-tilt">
                             <img src="assets/images/banner/vector_banner.png" alt="">
                         </figure>
                     </div>
@@ -294,32 +567,116 @@
             </div>
         </div>
     </section>
+    
+    <style>
+                        /* General Text Styling for the Banner Section */
+
+                        .banner-style-eight .content-box h2 {
+    font-size: 2.5rem; /* Adjust heading size */
+    line-height: 1.3; /* Adjust line height for better readability */
+    margin-bottom: 15px; /* Add spacing below the heading */
+}
+
+.banner-style-eight .content-box h3 {
+    font-size: 1.8rem; /* Adjust subheading size */
+    line-height: 1.4; /* Adjust line height */
+    margin-bottom: 10px; /* Add spacing below the subheading */
+    letter-spacing: 0.5px; /* Slightly increase letter spacing */
+}
+
+.banner-style-eight .content-box p {
+    font-size: 1rem; /* Adjust paragraph text size */
+    line-height: 1.6; /* Improve readability by increasing line spacing */
+    margin-bottom: 20px; /* Add spacing below the paragraph */
+    letter-spacing: 0.3px; /* Slightly increase letter spacing for clarity */
+    text-align: justify; /* Keep text justified */
+}
+
+/* Adjust button spacing */
+.banner-style-eight .btn-box a {
+    margin-right: 10px; /* Add space between buttons */
+    padding: 10px 20px; /* Adjust button padding */
+    font-size: 1rem; /* Adjust button text size */
+    text-transform: capitalize; /* Adjust text transformation if needed */
+}
+
+/* Adjust spacing around the entire section */
+.banner-style-eight {
+    padding: 40px 0; /* Adjust top and bottom padding of the section */
+}
+
+    </style>
+    
+    <style>
+        /* General Styling */
+        .banner-style-eight {
+            padding: 50px 20px;
+        }
+    
+        .content-box h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+    
+        .content-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+    
+        .btn-box a {
+            margin-right: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    
+        .image-box {
+            text-align: center;
+        }
+    
+        .image {
+            position: relative;
+        }
+    
+        /* Desktop View (768px and above) */
+        @media (min-width: 768px) {
+            .image .js-tilt {
+                position: relative;
+                left: -110px; /* Desktop-specific offset */
+            }
+        }
+    
+        /* Mobile View (Less than 768px) */
+        @media (max-width: 767px) {
+            .image .js-tilt {
+                position: relative;
+                left: 0; /* Center the figure in mobile view */
+            }
+    
+            .banner-style-eight {
+                text-align: center;
+            }
+    
+            .content-column, .image-column {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    
     <!-- banner-section end -->
 
     <!-- about-style-two -->
     <section id="about" style="padding: 120px 20px; background-color: #f9f9f9;">
-        <h2 style="text-align: center;">About The Program</h2>
-        <div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 20px;">
-            <!-- Left Column (Video) -->
-            <div class="col-lg-6 col-md-10 col-sm-10" style="flex: 1; display: flex; align-items: center; height: auto;">
-                <div style="width: 100%; height: 100%; margin-left: 50px;"> <!-- Adjusted margin -->
-                    <iframe width="100%" height="370"
-                        src="https://player.vimeo.com/video/1040283093?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                        title="YFSI" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-    
-            <!-- Right Column (Text) -->
-            <div class="col-lg-6 col-md-12 col-sm-12 content-column" style="flex: 1;">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 20px;">About The Program</h2>
+        <div class="about-container" style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 5px;">
+            <!-- Left Column (Text) -->
+            <div class="text-column" style="flex: 1; padding: 10px; display: flex; flex-direction: column; justify-content: center;">
                 <div class="content_block_4">
                     <div class="content-box">
-                        <div class="sec-title style-two">
-                        </div>
+                        <div class="sec-title style-two"></div>
                     </div>
-                    <div class="text text-justify">
+                    <div class="text" style="text-align: justify; font-size: 1rem; line-height: 1.6;">
                         <p>This Program aims to empower India’s youth with the entrepreneurial skills and mindsets
                             needed to drive innovation and create impactful, scalable ventures. By equipping young
                             people with 21st-century skills, we enable them to address real-world challenges and
@@ -334,11 +691,133 @@
                     </div>
                 </div>
             </div>
+    
+            <!-- Right Column (Video) -->
+            <div class="video-column" style="flex: 1; display: flex; justify-content: center; padding: 10px;">
+                <iframe style="width: 100%; max-width: 500px; height: auto;" 
+                    src="https://player.vimeo.com/video/1040283093?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                    title="YFSI" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
     </section>
     
+    <style>
+    /* Remove or reduce margin/padding around the header and banner section */
+.main-header {
+    margin-bottom: 0; /* Ensure no bottom margin */
+    padding-bottom: 0; /* Remove any bottom padding */
+}
+
+.banner-style-eight {
+    margin-top: 0; /* Remove any top margin */
+    padding-top: 0; /* Remove any top padding */
+}
+
+/* Optional: Adjust specific inner containers if extra spacing persists */
+.header-lower {
+    padding-bottom: 0; /* Remove padding between header-lower and next section */
+}
+
+.banner-style-eight .auto-container {
+    padding-top: 180px; /* Add minimal padding for clarity (optional) */
+}
+</style>
+
+    <style>
+        /* Mobile view adjustments */
+        @media (max-width: 767px) {
+            .about-container {
+                flex-direction: column; /* Stack the elements vertically */
+            }
+    
+            .text-column {
+                order: 1; /* Display the text first */
+            }
+    
+            .video-column {
+                order: 2; /* Display the video below the text */
+            }
+        }
+    </style>
     
     
+    <!-- <style>
+        /* General Styling */
+        #about {
+            padding: 80px 15px;
+            background-color: #f9f9f9;
+        }
+    
+        #about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+    
+        #about iframe {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+    
+        #about .text {
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+    
+        /* Desktop View (768px and above) */
+        @media (min-width: 768px) {
+            .about-container {
+                flex-direction: row;
+                align-items: stretch;
+            }
+    
+            .video-column, .text-column {
+                flex: 1 1 50%;
+            }
+    
+            #about h2 {
+                font-size: 2.5rem;
+            }
+    
+            #about iframe {
+                height: 100%; /* Matches the height of the text column */
+            }
+    
+            .text-column {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    
+        /* Mobile View (Less than 768px) */
+        @media (max-width: 767px) {
+            .about-container {
+                flex-direction: column;
+            }
+    
+            .video-column, .text-column {
+                flex: 1 1 100%;
+            }
+    
+            #about {
+                padding: 50px 10px;
+            }
+    
+            #about .text {
+                padding: 0 10px;
+            }
+        }
+    </style> -->
+
+
+
+
+
     <!-- about-style-two end -->
 
     <!-- benefits-style-two -->
@@ -703,7 +1182,7 @@
                 <div class="idea-card">
                     <div class="team-leader">Kottapeta Sanjeev Kumar Goud</div><br>
                     <div class="idea-info">
-                        <div class="college-details" style="display: flex; align-items: center; gap: 15px;">
+                        <div class="college-details" style="display: flex; align-items: center; gap: 5px;"><br>
                             <i class="fa fa-user" 
                             style="font-size: 15px; color: orange; padding: 2px;"></i> 
                             <span style="font-size: 15px; color: #0f0f0f; padding: 2px;">Kottapeta Sanjeev Kumar Goud</span>
@@ -857,6 +1336,80 @@
         </div>
     </section>
     
+    <style>
+    .ideas-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    
+    .idea-card {
+        width: calc(50% - 20px); /* Two cards per row with spacing */
+        background: #ffffff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+    
+    .idea-card .team-leader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #cc8b08;
+        color: #ffffff;
+        padding: 5px 15px;
+        border-top-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .idea-info h4 {
+        color: #333;
+        margin: 15px 0 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .idea-info p {
+        margin: 5px 0;
+        color: #555;
+    }
+    
+    .idea-brief p {
+        margin-top: 15px;
+        color: #666;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    /* Responsive design for mobile screens */
+    @media (max-width: 768px) {
+        .idea-card {
+            width: 100%; /* Make cards occupy full width in mobile view */
+        }
+    
+        .college-details {
+            flex-direction: column; /* Stack icons and text vertically */
+            align-items: flex-start; /* Align items to the left */
+        }
+    
+        .college-details i {
+            margin-bottom: 5px; /* Add some spacing between icons and text */
+        }
+    
+        .idea-info h4 {
+            font-size: 16px; /* Slightly reduce font size for smaller screens */
+        }
+    
+        .idea-brief p {
+            font-size: 13px; /* Adjust text size for readability on mobile */
+        }
+    }
+   </style>    
 
 
     <!-- <section class="student-ideas-card-style" id="student-ideas">
@@ -1650,7 +2203,7 @@
 
 
 
-
+       <br><br>
     <section class="testimonial-style-three" id="testimonials">
         <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-27.png);"></div>
         <div class="auto-container">
@@ -1676,6 +2229,10 @@
                 <div class="col-lg-8 col-md-12 col-sm-12 content-column">
                     <div class="testimonial-content">
                         <div class="single-item-carousel owl-carousel owl-theme owl-dots-none">
+                            <!-- <div class="owl-nav">
+                                <button type="button" class="owl-prev" style="margin-left: 70px;"><i class="fas fa-chevron-left"></i></button>
+                                <button type="button" class="owl-next" style="margin-left: -70px;"><i class="fas fa-chevron-right"></i></button>
+                            </div> -->
                             <div class="inner-box">
                                 <div class=""><i class=""></i></div>
                                 <div class="text">
@@ -1711,7 +2268,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team</h3>
+                                    <h3>Team 1</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -1755,7 +2312,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team</h3>
+                                    <h3>Team 2</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -1803,7 +2360,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team</h3>
+                                    <h3>Team 3</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -1852,7 +2409,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team</h3>
+                                    <h3>Team 4</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -1897,7 +2454,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team</h3>
+                                    <h3>Team 5</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -1908,19 +2465,248 @@
                                 </div>
                             </div>
                             <!-- Add the rest of the testimonials -->
+                            <div class="inner-box">
+                                <div class=""><i class=""></i></div>
+                                <div class="text">
+                                <div style="padding:56.25% 0 0 0;position:relative;">
+                                    <iframe src="https://player.vimeo.com/video/1034068015?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                                        frameborder="0" 
+                                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                                        style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                                        title="Team 6"></iframe>
+                                </div>
+                                <script src="https://player.vimeo.com/api/player.js"></script>
+                            </div>
+                            <div class="author-info">
+                                <h3>Team 6</h3>
+                                <ul class="rating clearfix">
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <style>
+    /* Default desktop styles */
+.testimonial-style-three .owl-prev {
+    left: -130px; /* Default position for desktop */
+}
+.testimonial-style-three .owl-next {
+    right: 10px; /* Default position for desktop */
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 768px) {
+    .testimonial-style-three .owl-prev {
+        left: -100px !important; /* Mobile position */
+    }
+    .testimonial-style-three .owl-next {
+        right: 20px !important; /* Mobile position */
+    }
+}
+
+/* Additional desktop adjustments for clarity */
+@media screen and (min-width: 769px) {
+    .testimonial-style-three .owl-prev {
+        left: -130px !important; /* Ensure desktop styles apply */
+    }
+    .testimonial-style-three .owl-next {
+        right: 10px !important; /* Ensure desktop styles apply */
+    }
+}
+</style>
+
+<script>
+    $(document).ready(function(){
+    $(".single-item-carousel").owlCarousel({
+        items: 1,
+        loop: true,
+        nav: true,
+        dots: false,
+        navText: [
+            '<i class="fas fa-chevron-left"></i>',
+            '<i class="fas fa-chevron-right"></i>'
+        ],
+        onInitialized: function() {
+            $('.testimonial-style-three .owl-prev').css('left', '9000px');
+            $('.testimonial-style-three .owl-next').css('right', '-5000px');
+        }
+    });
+});
+
+    </script>
+    
+    <style>
+        /* Responsive adjustments for mobile view */
+@media screen and (max-width: 768px) {
+    .testimonial-style-three .owl-prev,
+    .testimonial-style-three .owl-next {
+        width: 30px; /* Smaller arrow size for mobile */
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .testimonial-style-three .owl-prev {
+        left: -90px; /* Move left button slightly more to the left */
+    }
+
+    .testimonial-style-three .owl-next {
+        right: -10px; /* Move right button slightly more to the left */
+    }
+}
+
+        </style>
+    <style>
+ 
+         /* General styles for arrows */
+.testimonial-style-three .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.testimonial-style-three .owl-prev,
+.testimonial-style-three .owl-next {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    pointer-events: all;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+/* Hover effect for arrows */
+.testimonial-style-three .owl-prev:hover,
+.testimonial-style-three .owl-next:hover {
+    background-color: #555;
+}
+
+/* Positioning arrows for desktop view */
+.testimonial-style-three .owl-prev {
+    position: absolute;
+    left: -80px;
+}
+
+.testimonial-style-three .owl-next {
+    position: absolute;
+    right: 10px;
+}
+
+/* Responsive adjustments for mobile view */
+@media screen and (max-width: 768px) {
+    .testimonial-style-three .owl-prev,
+    .testimonial-style-three .owl-next {
+        width: 30px; /* Smaller arrow size for mobile */
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .testimonial-style-three .owl-prev {
+        left: 30px; /* Adjust position for smaller screens */
+    }
+
+    .testimonial-style-three .owl-next {
+        right: 5px; /* Adjust position for smaller screens */
+    }
+}
+
+/* Adjustments for extra-large screens */
+@media screen and (min-width: 1200px) {
+    .testimonial-style-three .owl-prev {
+        left: -20px; /* Offset arrows further on larger screens */
+    }
+
+    .testimonial-style-three .owl-next {
+        right: -20px;
+    }
+}
+
+    </style>
+
+    <script>
+        $(document).ready(function(){
+    $(".single-item-carousel").owlCarousel({
+        items: 1,
+        loop: true,
+        nav: true,
+        dots: false,
+        navText: [
+            '<i class="fas fa-chevron-left"></i>',
+            '<i class="fas fa-chevron-right"></i>'
+        ]
+    });
+});
+
+    </script>
+
+    <style>
+        /* Default styles for the testimonial cards */
+.testimonial-style-three .inner-box {
+    padding: 20px;
+    font-size: 16px;
+}
+
+/* Adjust styles for mobile view */
+@media screen and (max-width: 768px) {
+    .testimonial-style-three .inner-box {
+        padding: 10px; /* Reduce padding */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    .testimonial-style-three .inner-box .text {
+        max-height: 250px; /* Limit the height */
+        overflow-y: auto; /* Add scroll for overflowing content */
+    }
+
+    .testimonial-style-three .author-info {
+        font-size: 12px; /* Reduce font size of author info */
+    }
+
+    iframe {
+        height: 200px; /* Adjust iframe height */
+    }
+}
+    </style>
+
+    
+    
     <!-- <link rel="stylesheet" href="path/to/owl.carousel.min.css">
     <link rel="stylesheet" href="path/to/owl.theme.default.min.css">
     <script src="path/to/jquery.min.js"></script>
     <script src="path/to/owl.carousel.min.js"></script> -->
     
-   
-    
+   <style>
+    @media (max-width: 768px) {
+        html, body {
+          overflow-x: hidden;
+        }
+        
+        .your-container {
+          width: 100%;
+        }
+      }
+    </style>
     
     
     
@@ -2096,7 +2882,7 @@
                                                 <div class="col-lg-5 text-center">
                                                     <h3 id="name" class="text-uppercase text-center lang-change"
                                                         data-lang="impact-india"
-                                                        style="color:#8dd365; font-size: 40px; padding-bottom: 30px;">
+                                                        style="color:#8dd365; font-size: 34px; padding-bottom: 30px;">
                                                         Telangana</h3>
                                                 </div>
                                                 <br>
@@ -11430,35 +12216,81 @@
                                             <!-- Right Side Blocks -->
                                             <div class="counter-block-one py-20">
                                                 <div class="count-outer count-box">
-                                                    <span class="count-text" data-speed="1500"
-                                                        data-stop="33">0</span><span></span>
+                                                    <span class="count-text" data-speed="1500" data-stop="33">0</span>
                                                 </div>
                                                 <h4>District</h4>
                                             </div>
-
-
                                             <div class="counter-block-one py-20">
                                                 <div class="count-outer count-box">
-                                                    <span class="count-text" data-speed="1500"
-                                                        data-stop="490">0</span><span></span>
-
-                                                    <br>
+                                                    <span class="count-text" data-speed="1500" data-stop="490">0</span>
                                                 </div>
                                                 <h4>Institutions</h4>
                                             </div>
-
-
                                             <div class="counter-block-one py-20">
                                                 <div class="count-outer count-box">
-                                                    <span class="count-text" data-speed="1500"
-                                                        data-stop="11823">0</span><span></span>
+                                                    <span class="count-text" data-speed="1500" data-stop="11823">0</span>
                                                 </div>
                                                 <h4>Youth Participants</h4>
                                             </div>
                                         </div>
-
-
-
+                                        <style>
+                                            /* Center align the left-blocks elements for mobile view */
+                                            @media (max-width: 5000px) {
+                                                .left-blocks {
+                                                    display: flex; /* Use Flexbox for alignment */
+                                                    flex-direction: column; /* Stack items vertically */
+                                                    align-items: center; /* Center align horizontally */
+                                                    margin: 0 auto; /* Center the entire container */
+                                                    margin-right: 51px;
+                                                }
+                                        
+                                                .counter-block-one {
+                                                    width: 100%; /* Ensure blocks take up full width */
+                                                    max-width: 300px; /* Optional: Set max width for better control */
+                                                    text-align: center; /* Center the content inside each block */
+                                                    margin-bottom: 20px; /* Add spacing between blocks */
+                                                }
+                                        
+                                                /* Adjust padding for smaller screens */
+                                                .counter-block-one h4 {
+                                                    font-size: 16px; /* Adjust heading size */
+                                                }
+                                        
+                                                .counter-block-one .count-outer {
+                                                    font-size: 24px; /* Adjust count size */
+                                                }
+                                            }
+                                        </style>
+                                        
+                                        <style>
+                                            /* Center align the right-blocks elements for mobile view */
+                                            @media (max-width: 5000px) {
+                                                .right-blocks {
+                                                    display: flex; /* Use Flexbox */
+                                                    flex-direction: column; /* Stack items vertically */
+                                                    align-items: center; /* Center align horizontally */
+                                                    margin: 0 auto; /* Center the entire container */
+                                                    margin-right: 51px;
+                                                }
+                                        
+                                                .right-blocks .counter-block-one {
+                                                    width: 100%; /* Ensure blocks take up full width */
+                                                    max-width: 300px; /* Optional: Set a max width */
+                                                    text-align: center; /* Center the content inside each block */
+                                                    margin-bottom: 20px; /* Add spacing between blocks */
+                                                }
+                                        
+                                                /* Adjust padding for smaller screens */
+                                                .right-blocks .counter-block-one h4 {
+                                                    font-size: 16px; /* Adjust heading size */
+                                                }
+                                        
+                                                .right-blocks .count-outer {
+                                                    font-size: 24px; /* Adjust counter size */
+                                                }
+                                            }
+                                        </style>
+                                                                                
                                     </div>
                                 </div>
                             </div>
@@ -11471,18 +12303,19 @@
         </div>
         </div>
         </div>
-    </section>
+    </section>    
     <!-- pricing-section end -->
 
     <!-- clients-section -->
+    
     <section class="clients-style-two centred" id="lastyearhighlights">
         <div class="auto-container">
             <div class="sec-title style-two">
                 <h2>Key Partners</h2>
                 <!-- <h2>Trusted by creative organizations</h2> -->
                 <!-- <div class="divider" style="background-image: url(assets/images/icons/divider-1.png);"></div> -->
-            </div>
-            <div class="clients-carousel owl-carousel owl-theme owl-nav-none dots-style-one">
+            </div><br><br><br><br><br>
+            <div class="clients-carousel owl-carousel owl-theme owl-nav dots-style-one">
                 <div class="clients-logo-box">
                     <a><img src="assets/images/partners/UNICEF Logo.png" alt=""></a>
                 </div>
@@ -11508,13 +12341,290 @@
             </div>
         </div>
     </section>
+
+    <script>
+        $(document).ready(function () {
+    $(".clients-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true, // Enable navigation (arrows)
+        dots: true, // Keep dots if required
+        navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"], // Custom arrow icons
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    });
+});
+
+    </script>
+
+    <style>
+    .owl-nav {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 70%; /* Lower the nav to avoid overlapping */
+    width: 100%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.owl-nav .owl-prev,
+.owl-nav .owl-next {
+    pointer-events: auto;
+    background-color: #007bff; /* Customize background */
+    color: #fff; /* Customize arrow color */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    z-index: 2; /* Ensure arrows appear above other elements */
+}
+
+.owl-nav .owl-prev:hover,
+.owl-nav .owl-next:hover {
+    background-color: #0056b3; /* Hover effect */
+}
+
+.owl-nav .owl-prev {
+    left: -20px; /* Adjust left arrow position */
+}
+
+.owl-nav .owl-next {
+    right: -20px; /* Adjust right arrow position */
+}
+
+.owl-nav .fas {
+    font-size: 16px; /* Arrow icon size */
+}
+
+/* Ensure title is visible */
+.sec-title {
+    position: relative;
+    z-index: 3; /* Keep title above arrows */
+    margin-bottom: 20px; /* Ensure spacing between title and carousel */
+    text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+    .sec-title {
+        font-size: 18px; /* Adjust font size for smaller screens */
+        margin-bottom: 15px;
+    }
+}
+
+    </style>
     <!-- clients-section end -->
+
     
 
     <!-- faq-style-two -->
+    <!-- <section class="faq-style-two sec-pad" id="faqs">
+        <div class="auto-container">
+            <div class="row align-items-center clearfix"> -->
+                <!-- <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                    <div class="content_block_16">
+                        <div class="content-box">
+                            <div class="sec-title style-two">
+                                <h2>Frequently Asked Questions</h2>
+                            </div>
+                            <ul class="accordion-box">
+                                <li class="accordion block">
+                                    <div class="acc-btn">
+                                        <div class="icon-outer"><i class="fas fa-plus"></i></div>
+                                        <h6>Who can participate in the program?</h6>
+                                    </div>
+                                    <div class="acc-content">
+                                        <div class="text">
+                                            <p>Youth aged 17-25 who are passionate about innovation and entrepreneurship can participate.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="accordion block">
+                                    <div class="acc-btn">
+                                        <div class="icon-outer"><i class="fas fa-plus"></i></div>
+                                        <h6>What types of ideas can I submit?</h6>
+                                    </div>
+                                    <div class="acc-content">
+                                        <div class="text">
+                                            <p>Ideas that align with one of the 20 provided themes, including Smart Automation, HealthTech, Agriculture, Education, etc.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="accordion block">
+                                    <div class="acc-btn">
+                                        <div class="icon-outer"><i class="fas fa-plus"></i></div>
+                                        <h6>Can I participate as an individual?</h6>
+                                    </div>
+                                    <div class="acc-content">
+                                        <div class="text">
+                                            <p>YES, BUT team participation is encouraged.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="accordion block">
+                                    <div class="acc-btn">
+                                        <div class="icon-outer"><i class="fas fa-plus"></i></div>
+                                        <h6>What is the selection process?</h6>
+                                    </div>
+                                    <div class="acc-content">
+                                        <div class="text">
+                                            <p>Ideas are evaluated based on innovation, impact, feasibility, and scalability. Shortlisted teams move to the next phase.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="accordion block">
+                                    <div class="acc-btn">
+                                        <div class="icon-outer"><i class="fas fa-plus"></i></div>
+                                        <h6>Is there mentorship available?</h6>
+                                    </div>
+                                    <div class="acc-content">
+                                        <div class="text">
+                                            <p>Yes, shortlisted teams receive mentorship from industry experts to refine their ideas.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-lg-6 col-md-12 col-sm-12 content-column " style="padding-top: 75px;">
+                    <div class="content_block_16">
+                        <div class="content-box">
+                            <ul class="accordion-box">
+                                <li class="accordion block">
+                                    <div class="acc-btn">
+                                        <div class="icon-outer"><i class="fas fa-plus"></i></div>
+                                        <h6>What support is provided to the winning ideas?</h6>
+                                    </div>
+                                    <div class="acc-content">
+                                        <div class="text">
+                                            <p>Winning teams receive incubation support, funding, and resources to grow and scale their ventures.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="accordion block">
+                                    <div class="acc-btn">
+                                        <div class="icon-outer"><i class="fas fa-plus"></i></div>
+                                        <h6>How do I submit my idea?</h6>
+                                    </div>
+                                    <div class="acc-content">
+                                        <div class="text">
+                                            <p>After registering your team, complete the course, select a theme, and submit your idea through the online portal.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="accordion block">
+                                    <div class="acc-btn">
+                                        <div class="icon-outer"><i class="fas fa-plus"></i></div>
+                                        <h6>What are the key phases of the program?</h6>
+                                    </div>
+                                    <div class="acc-content">
+                                        <div class="text">
+                                            <p>The program has two main phases: Ideation and Evaluation, followed by the Entrepreneurship Journey, including mentorship, pitching, and incubation.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="accordion block">
+                                    <div class="acc-btn">
+                                        <div class="icon-outer"><i class="fas fa-plus"></i></div>
+                                        <h6>Can I submit more than one idea?</h6>
+                                    </div>
+                                    <div class="acc-content">
+                                        <div class="text">
+                                            <p>No, each team can submit only one idea aligned with a specific theme.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="accordion block">
+                                    <div class="acc-btn">
+                                        <div class="icon-outer"><i class="fas fa-plus"></i></div>
+                                        <h6>What is the timeline for the program?</h6>
+                                    </div>
+                                    <div class="acc-content">
+                                        <div class="text">
+                                            <p>Details on program phases, deadlines, and submission dates are available on the about us section.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> -->
+    
+                <!-- <script>
+                    // JavaScript to toggle FAQ content independently
+                    document.querySelectorAll('.acc-btn').forEach((btn) => {
+                        btn.addEventListener('click', function () {
+                            const accContent = this.nextElementSibling;
+                            const icon = this.querySelector('.icon-outer i');
+    
+                            // Toggle current content
+                            if (accContent.style.display === 'block') {
+                                accContent.style.display = 'none';
+                                icon.className = 'fas fa-plus';
+                            } else {
+                                accContent.style.display = 'block';
+                                icon.className = 'fas fa-minus';
+                            }
+                        });
+                    });
+                </script>
+     -->
+                <!-- <style>
+                    .acc-content {
+                        display: none;
+                        transition: all 0.3s ease-in-out;
+                    }
+    
+                    .acc-btn {
+                        cursor: pointer;
+                    }
+                </style> -->
+            <!-- </div>
+        </div>
+    </section> -->
+    
+    <!-- faq-style-two end -->
+
+    
+    <!-- <script>
+        // JavaScript for FAQ toggle functionality
+        document.querySelectorAll('.acc-btn').forEach((btn) => {
+            btn.addEventListener('click', function () {
+                const accContent = this.nextElementSibling; // Find the associated content
+                const icon = this.querySelector('.icon-outer i'); // Find the icon inside the clicked button
+    
+                if (accContent.style.display === 'block') {
+                    // If the content is already open, close it
+                    accContent.style.display = 'none';
+                    icon.className = 'fas fa-plus'; // Change icon to plus
+                } else {
+                    // If the content is closed, open it
+                    accContent.style.display = 'block';
+                    icon.className = 'fas fa-minus'; // Change icon to minus
+                }
+            });
+        });
+    </script> -->
+    
+    
     <section class="faq-style-two sec-pad" id="faqs">
         <div class="auto-container">
             <div class="row align-items-center clearfix">
+                <!-- FAQ Column 1 -->
                 <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                     <div class="content_block_16">
                         <div class="content-box">
@@ -11581,7 +12691,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 content-column " style="padding-top: 75px;">
+                <!-- FAQ Column 2 -->
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column" style="padding-top: 75px;">
                     <div class="content_block_16">
                         <div class="content-box">
                             <ul class="accordion-box">
@@ -11644,63 +12755,85 @@
                         </div>
                     </div>
                 </div>
-    
-                <!-- <script>
-                    // JavaScript to toggle FAQ content independently
-                    document.querySelectorAll('.acc-btn').forEach((btn) => {
-                        btn.addEventListener('click', function () {
-                            const accContent = this.nextElementSibling;
-                            const icon = this.querySelector('.icon-outer i');
-    
-                            // Toggle current content
-                            if (accContent.style.display === 'block') {
-                                accContent.style.display = 'none';
-                                icon.className = 'fas fa-plus';
-                            } else {
-                                accContent.style.display = 'block';
-                                icon.className = 'fas fa-minus';
-                            }
-                        });
-                    });
-                </script>
-     -->
-                <!-- <style>
-                    .acc-content {
-                        display: none;
-                        transition: all 0.3s ease-in-out;
-                    }
-    
-                    .acc-btn {
-                        cursor: pointer;
-                    }
-                </style> -->
             </div>
         </div>
     </section>
-    
-    <!-- faq-style-two end -->
 
+    <style>
+        @media screen and (max-width: 768px) {
+            /* Remove the padding between the two columns */
+            .faq-style-two .image-column, 
+            .faq-style-two .content-column {
+                padding-top: 0 !important; /* Ensure no top padding */
+                margin-top: 0 !important; /* Ensure no top margin */
+            }
+    
+            /* Make the FAQ items stack vertically */
+            .faq-style-two .row {
+                display: flex;
+                flex-direction: column; /* Stack columns vertically */
+                align-items: stretch; /* Make them full width */
+            }
+    
+            /* Adjust accordion styles for better spacing */
+            .faq-style-two .accordion-box {
+                margin-bottom: 0; /* Remove additional margin between FAQ boxes */
+            }
+        }
+    </style>
+    
     
     <script>
         // JavaScript for FAQ toggle functionality
-        document.querySelectorAll('.acc-btn').forEach((btn) => {
-            btn.addEventListener('click', function () {
-                const accContent = this.nextElementSibling; // Find the associated content
-                const icon = this.querySelector('.icon-outer i'); // Find the icon inside the clicked button
+        document.querySelectorAll('.acc-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const accContent = btn.nextElementSibling;
+                const icon = btn.querySelector('.icon-outer i');
     
+                // Close all other opened FAQs
+                document.querySelectorAll('.acc-content').forEach(content => {
+                    if (content !== accContent) {
+                        content.style.display = 'none';
+                        const otherIcon = content.previousElementSibling.querySelector('.icon-outer i');
+                        otherIcon.className = 'fas fa-plus';
+                        content.previousElementSibling.style.backgroundColor = ''; // Reset background color
+                    }
+                });
+    
+                // Toggle the selected FAQ
                 if (accContent.style.display === 'block') {
-                    // If the content is already open, close it
                     accContent.style.display = 'none';
-                    icon.className = 'fas fa-plus'; // Change icon to plus
+                    icon.className = 'fas fa-plus';
+                    btn.style.backgroundColor = ''; // Reset background color
                 } else {
-                    // If the content is closed, open it
                     accContent.style.display = 'block';
-                    icon.className = 'fas fa-minus'; // Change icon to minus
+                    icon.className = 'fas fa-minus';
+                    btn.style.backgroundColor = 'yellow'; // Set background color to yellow
                 }
             });
         });
     </script>
-    
+
+<style>
+    @media (max-width: 767px) {
+        /* Remove margin or padding between sections */
+        #lastyearhighlights {
+            margin-bottom: 0; /* Remove bottom margin */
+            padding-bottom: 0; /* Remove bottom padding */
+        }
+
+        #faqs {
+            margin-top: 0; /* Remove top margin */
+            padding-top: 0; /* Remove top padding */
+        }
+
+        /* Optional: Adjust general section padding for better compactness */
+        .sec-pad {
+            padding: 10px 0; /* Reduce padding for smaller screens */
+        }
+    }
+</style>
+
     
     
     
@@ -11722,14 +12855,67 @@
                     <div class="copyright pull-left">
                         <p>Copyright &copy; <a href="#">imaGen Ventures</a>, All Rights Reserved.</p>
                     </div>
-                    <ul class="footer-nav pull-right clearfix">
+                    <!-- <ul class="footer-nav pull-right clearfix">
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
-                    </ul>
+                    </ul> -->
+                    <div class="right-column pull-right clearfix">
+                        <ul class="social-links clearfix">
+                            <li><a href="https://www.instagram.com/yfsi_telangana/" target="_blank"><span
+                                        class="fab fa-instagram"></span></a></li>
+                            <li><a href="https://www.youtube.com/watch?v=fkrhn2qSK-A&t=274s" target="_blank"><span
+                                        class="fab fa-youtube"></span></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
+    
+    <style>
+        /* Default desktop styling */
+        .main-footer .footer-bottom .bottom-inner {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .footer-nav {
+            display: flex;
+            gap: 10px;
+        }
+    
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+    
+        /* Mobile view adjustments */
+        @media screen and (max-width: 768px) {
+            .main-footer .footer-bottom .bottom-inner {
+                flex-wrap: wrap;
+                text-align: center;
+            }
+    
+            .footer-nav {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+    
+            .social-links {
+                justify-content: center;
+                width: 100%;
+            }
+    
+            .right-column {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+    
     <!-- main-footer end -->
 
 

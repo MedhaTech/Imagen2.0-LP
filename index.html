@@ -209,6 +209,7 @@
                 </div>
             </div>
         </div>
+        </header>
               
         
             <style>
@@ -394,7 +395,7 @@
                 </div>
             </div>
         </div> -->
-    </header>
+    
     <!-- main-header end -->
 
     <!-- Mobile Menu  -->
@@ -917,6 +918,12 @@
                 <h3>No problem is too big... No idea is too small </h3>
                 <!-- <div class="divider" style="background-image: url(assets/images/icons/divider-1.png);"></div> -->
             </div>
+            <div class="owl-carousel-container">
+                <!-- Custom Navigation Buttons -->
+                <div class="owl-nav">
+                    <button class="owl-prev">&larr;</button>
+                    <button class="owl-next">&rarr;</button>
+                </div>
             <div class="four-item-carousel owl-carousel owl-theme owl-nav-none dots-style-one">
                 <div class="service-block-five">
                     <div class="inner-box">
@@ -1072,10 +1079,254 @@
                     </div>
                 </div>
 
+                </div>
+        
 
             </div>
         </div>
     </section>
+
+    
+    <style>
+        /* General styles */
+        #themes {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+    
+        .auto-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+    
+        .sec-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    
+        .sec-title h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    
+        .sec-title h3 {
+            font-size: 18px;
+            color: #555;
+        }
+    
+        /* Carousel container */
+        .owl-carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+    
+        /* Navigation buttons */
+        .owl-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+    
+        .owl-prev,
+        .owl-next {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+    
+        .owl-prev:hover,
+        .owl-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    
+        .owl-prev {
+            left: -20px;
+        }
+    
+        .owl-next {
+            right: -20px;
+        }
+    
+        /* Service block styling */
+        .service-block-five {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    
+        .service-block-five .image-box {
+            margin-bottom: 15px;
+        }
+    
+        .service-block-five h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+    
+        .service-block-five p {
+            font-size: 14px;
+            color: #777;
+        }
+    
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .owl-prev,
+            .owl-next {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+    
+            .owl-prev {
+                left: -10px;
+            }
+    
+            .owl-next {
+                right: -10px;
+            }
+        }
+    </style>
+
+    <script>
+    $(document).ready(function () {
+        $(".four-item-carousel").owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: true,
+            dots: false,
+            navText: [$(".owl-prev"), $(".owl-next")],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
+    });
+</script>
+
+
+
+
+<!-- <script>
+        $(document).ready(function () {
+            $(".four-item-carousel").owlCarousel({
+                loop: true, // Enable infinite scrolling
+                margin: 20, // Space between items
+                nav: true, // Enable default nav buttons
+                dots: true, // Enable dots for navigation
+                responsive: {
+                    0: { items: 1 }, // 1 item on small screens
+                    768: { items: 2 }, // 2 items on medium screens
+                    1200: { items: 4 }, // 4 items on large screens
+                },
+            });
+        
+            // Custom navigation for the carousel
+            const carousel = $(".four-item-carousel");
+            $(".owl-prev").click(function () {
+                carousel.trigger("prev.owl.carousel");
+            });
+            $(".owl-next").click(function () {
+                carousel.trigger("next.owl.carousel");
+            });
+        });
+        </script> -->
+
+        <style>
+            /* Prevent horizontal scrolling */
+            body, html {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+        
+            /* Style for the navigation buttons */
+            .owl-nav {
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                width: 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 10;
+                padding: 0 15px;
+            }
+        
+            .owl-prev,
+            .owl-next {
+                background-color: rgba(51, 51, 51, 0.8);
+                color: #fff;
+                border: none;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-size: 18px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                transition: background-color 0.3s ease;
+            }
+        
+            .owl-prev:hover,
+            .owl-next:hover {
+                background-color: rgba(85, 85, 85, 0.8);
+            }
+        
+            .owl-prev {
+                left: 0;
+            }
+        
+            .owl-next {
+                right: 20px; /* Keep within the viewport */
+            }
+        
+            /* Adjust for mobile view */
+            @media (max-width: 768px) {
+                .owl-nav {
+                    top: auto;
+                    bottom: 10px;
+                    padding: 0 10px;
+                }
+        
+                .owl-prev,
+                .owl-next {
+                    width: 35px;
+                    height: 35px;
+                    font-size: 16px;
+                }
+        
+                .owl-next {
+                    right: 0; /* Restore position for mobile view */
+                }
+            }
+        </style>
+        
     <!-- service-style-five end -->
 
 

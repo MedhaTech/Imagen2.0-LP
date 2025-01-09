@@ -192,24 +192,45 @@
                                     <li><a href="#">Home</a></li>
                                     <li><a href="#about">About</a></li>
                                     <li><a href="#themes">Themes</a></li>
-                                    
                                     <li><a href="#impact">Impact</a></li>
                                     <li><a href="#lastyearhighlights">Partners</a></li>
                                     <li><a href="#testimonials">Testimonials</a></li>
                                     <li><a href="#faqs">FAQs</a></li>
+                                    <div class="nav-right-content">
+                                        <div class="btn-box">
+                                            <a href="http://ec2-43-204-38-180.ap-south-1.compute.amazonaws.com/login" class="theme-btn">Login</a>
+                                        </div>
+                                    </div>
                                 </ul>
                             </div>
                         </nav>
-                        <div class="nav-right-content">
-                            <div class="btn-box">
-                                <a href="http://ec2-43-204-38-180.ap-south-1.compute.amazonaws.com/login" class="theme-btn">Login</a>
-                            </div>
-                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
         </div>
         </header>
+
+        <style>
+            /* CSS for spacing */
+.nav-right-content {
+    margin-left: 50px; /* Adds space to the left of the login button */
+    display: flex; /* Ensures proper alignment if needed */
+    align-items: center; /* Vertically align with the nav */
+}
+
+.navigation {
+    margin-right: auto; /* Pushes navigation to the left */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .nav-right-content {
+        margin-left: 10px; /* Reduced space on smaller screens */
+    }
+}
+</style>
               
         
             <style>
@@ -677,7 +698,7 @@
                     <div class="content-box">
                         <div class="sec-title style-two"></div>
                     </div>
-                    <div class="text" style="text-align: justify; font-size: 1rem; line-height: 1.6;">
+                    <div class="text-column" style="text-align: justify; font-size: 1rem; line-height: 1.6;">
                         <p>This Program aims to empower India’s youth with the entrepreneurial skills and mindsets
                             needed to drive innovation and create impactful, scalable ventures. By equipping young
                             people with 21st-century skills, we enable them to address real-world challenges and
@@ -695,15 +716,48 @@
     
             <!-- Right Column (Video) -->
             <div class="video-column" style="flex: 1; display: flex; justify-content: center; padding: 10px;">
-                <iframe style="width: 100%; max-width: 500px; height: auto;" 
+                <iframe class="video-column iframe" style="width: 100%; max-width: 500px; max-height: 900px;"  
                     src="https://player.vimeo.com/video/1040283093?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                     title="YFSI" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
                 </iframe>
-            </div>
+            </div>            
         </div>
     </section>
+    
+    <style>
+        /* Desktop view adjustments */
+        @media (min-width: 768px) {
+            .text-column {
+                padding-left: 140px; /* Move the text slightly to the right */
+            }
+
+    .video-column iframe {
+        height: 300px !important; /* Force the height to 500px in desktop view */
+    }
+}
+
+
+    
+        /* Mobile view adjustments */
+        @media (max-width: 767px) {
+            .about-container {
+                flex-direction: column; /* Stack the elements vertically */
+            }
+        
+            .text-column {
+                order: 1; /* Display the text first */
+            }
+        
+            .video-column {
+                order: 2; /* Display the video below the text */
+            }
+        }
+    </style>
+    
+    
+    
     
     <style>
     /* Remove or reduce margin/padding around the header and banner section */
@@ -921,9 +975,22 @@
             <div class="owl-carousel-container">
                 <!-- Custom Navigation Buttons -->
                 <div class="owl-nav">
-                    <button class="owl-prev">&larr;</button>
-                    <button class="owl-next">&rarr;</button>
+                    <button class="owl-prev"><i class="fa fa-chevron-left"></i></button>
+                    <button class="owl-next"><i class="fa fa-chevron-right"></i></button>
                 </div>
+                <style>
+                .owl-nav {
+    position: absolute;
+    top: 5%; /* Adjust this to a smaller value like 45% to move upwards */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%); /* Keep it vertically centered */
+    z-index: 10;
+}
+
+                </style>
+                
             <div class="four-item-carousel owl-carousel owl-theme owl-nav-none dots-style-one">
                 <div class="service-block-five">
                     <div class="inner-box">
@@ -1086,6 +1153,57 @@
         </div>
     </section>
 
+    <style>
+.owl-prev,
+.owl-next {
+    background-color: white; /* Background color is white */
+    color: black; /* Arrow color is black */
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.owl-prev i,
+.owl-next i {
+    font-size: 18px;
+    color: inherit; /* Ensure the icon color inherits the button's color */
+}
+
+.owl-prev:hover,
+.owl-next:hover {
+    background-color: white; /* Background remains white on hover */
+    color: black; /* Arrow color changes to black on hover */
+}
+
+.owl-prev:hover i,
+.owl-next:hover i {
+    color: black; /* Ensure the arrow color is black when hovered */
+}
+
+.owl-prev {
+    left: -20px;
+}
+
+.owl-next {
+    right: -20px;
+}
+
+@media (max-width: 768px) {
+    .owl-prev,
+    .owl-next {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+</style>
     
     <style>
         /* General styles */
@@ -1162,30 +1280,6 @@
             right: -20px;
         }
     
-        /* Service block styling */
-        .service-block-five {
-            text-align: center;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-    
-        .service-block-five .image-box {
-            margin-bottom: 15px;
-        }
-    
-        .service-block-five h3 {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-    
-        .service-block-five p {
-            font-size: 14px;
-            color: #777;
-        }
-    
         /* Responsive design */
         @media (max-width: 768px) {
             .owl-prev,
@@ -1204,29 +1298,33 @@
             }
         }
     </style>
-
+    
     <script>
-    $(document).ready(function () {
-        $(".four-item-carousel").owlCarousel({
-            loop: true,
-            margin: 20,
-            nav: true,
-            dots: false,
-            navText: [$(".owl-prev"), $(".owl-next")],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                1000: {
-                    items: 4
-                }
+        $(document).ready(function () {
+    $(".four-item-carousel").owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true, // Enables navigation
+        dots: false,
+        navText: [
+            '<button class="owl-prev"><i class="fa fa-chevron-left"></i></button>', 
+            '<button class="owl-next"><i class="fa fa-chevron-right"></i></button>'
+        ],
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 4
             }
-        });
+        }
     });
-</script>
+});
+
+    </script>
 
 
 
@@ -2563,7 +2661,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team 2</h3>
+                                    <h3>Team 4</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -2611,7 +2709,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team 3</h3>
+                                    <h3>Team 7</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -2660,7 +2758,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team 4</h3>
+                                    <h3>Team 8</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -2705,7 +2803,7 @@
                                     <script src="https://player.vimeo.com/api/player.js"></script>
                                 </div>
                                 <div class="author-info">
-                                    <h3>Team 5</h3>
+                                    <h3>Team 9</h3>
                                     <ul class="rating clearfix">
                                         <li><i class="fas fa-star"></i></li>
                                         <li><i class="fas fa-star"></i></li>
@@ -2783,8 +2881,8 @@
         nav: true,
         dots: false,
         navText: [
-            '<i class="fas fa-chevron-left"></i>',
-            '<i class="fas fa-chevron-right"></i>'
+            '<i class="fa fa-chevron-left"></i>',
+            '<i class="fa fa-chevron-right"></i>'
         ],
         onInitialized: function() {
             $('.testimonial-style-three .owl-prev').css('left', '9000px');
@@ -2815,6 +2913,9 @@
 }
 
         </style>
+
+
+
     <style>
  
          /* General styles for arrows */
@@ -2903,8 +3004,8 @@
         nav: true,
         dots: false,
         navText: [
-            '<i class="fas fa-chevron-left"></i>',
-            '<i class="fas fa-chevron-right"></i>'
+            '<i class="fa fa-chevron-left"></i>',
+            '<i class="fa fa-chevron-right"></i>'
         ]
     });
 });
@@ -12617,12 +12718,14 @@
 
     </script>
 
-    <style>
-    .owl-nav {
+   
+<style>
+/* Desktop View */
+.owl-nav {
     display: flex;
     justify-content: space-between;
     position: absolute;
-    top: 70%; /* Lower the nav to avoid overlapping */
+    top: 60%; /* Lower the nav to avoid overlapping */
     width: 100%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -12642,6 +12745,7 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
     z-index: 2; /* Ensure arrows appear above other elements */
+    top: -10px; /* Adjust to move arrows upwards for desktop */
 }
 
 .owl-nav .owl-prev:hover,
@@ -12650,7 +12754,7 @@
 }
 
 .owl-nav .owl-prev {
-    left: -20px; /* Adjust left arrow position */
+    left: -100px; /* Adjust left arrow position for desktop */
 }
 
 .owl-nav .owl-next {
@@ -12670,11 +12774,26 @@
 }
 
 @media screen and (max-width: 767px) {
+    /* Move arrows upwards in mobile view */
+    .owl-nav {
+        top: 60%; /* Lower the nav slightly on mobile */
+    }
+
+    .owl-nav .owl-prev,
+    .owl-nav .owl-next {
+        top: -5px; /* Adjust position to move arrows upwards in mobile view */
+    }
+
+    .owl-nav .owl-prev {
+        left: -60px; /* Move left arrow more to the left in mobile view */
+    }
+
     .sec-title {
         font-size: 18px; /* Adjust font size for smaller screens */
         margin-bottom: 15px;
     }
 }
+
 
     </style>
     <!-- clients-section end -->
@@ -13111,18 +13230,65 @@
                         <li><a href="#">Terms & Conditions</a></li>
                     </ul> -->
                     <div class="right-column pull-right clearfix">
-                        <ul class="social-links clearfix">
-                            <li><a href="https://www.instagram.com/yfsi_telangana/" target="_blank"><span
-                                        class="fab fa-instagram"></span></a></li>
-                            <li><a href="https://www.youtube.com/watch?v=fkrhn2qSK-A&t=274s" target="_blank"><span
-                                        class="fab fa-youtube"></span></a></li>
+                        <ul class="social-links">
+                            <li><a href="https://www.instagram.com/yfsi_telangana/" class="fab fa-instagram" target="_blank"></a></li>
+                            <li><a href="https://www.youtube.com/watch?v=fkrhn2qSK-A&t=274s" class="fab fa-youtube" target="_blank"></a></li>
                         </ul>
                     </div>
+                    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> -->
+                    
                 </div>
             </div>
         </div>
     </footer>
-    
+
+    <!-- <i class="fa fa-linkedin" aria-hidden="true"></i> -->
+     <style>
+        .social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px; /* Space between icons */
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li a {
+    font-size: 24px; /* Adjust icon size */
+    color: #000; /* Default icon color */
+    text-decoration: none; /* Remove underline */
+    background: none; /* No background */
+    padding: 0; /* No padding */
+    border: none; /* No border */
+}
+
+.social-links li a:hover {
+    color: #007bff; /* Change color on hover */
+}
+</style>
+
+<style>
+    .social-links li a {
+    font-size: 24px; /* Set desired icon size */
+    color: #000; /* Icon color */
+    text-decoration: none; /* Remove underline */
+    background: none; /* Remove background */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    border: none; /* Remove border */
+    box-shadow: none; /* Remove shadow */
+    outline: none; /* Remove outline */
+    border-radius: 0; /* Ensure no rounded corners */
+}
+
+.social-links li {
+    list-style: none; /* Remove bullet points */
+}
+</style>
+
     <style>
         /* Default desktop styling */
         .main-footer .footer-bottom .bottom-inner {

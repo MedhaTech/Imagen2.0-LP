@@ -156,8 +156,7 @@
     <!-- main header -->
     
     
-    <header class="main-header header-style-eight">
-        
+    <header class="main-header header-style-eight">     
         <div class="header-top">
             <div class="auto-container">
                 <div class="top-inner clearfix">
@@ -176,11 +175,10 @@
         <div class="header-lower">
             <div class="auto-container">
                 <div class="outer-box clearfix">
-                    <div class="logo-box pull-left">
-                        <figure class="logo"><a href="index.html"><img src="assets/images/ysi_logo.png" alt=""></a></figure>
+                    <div class="logo-box">
+                        <figure class="logo"><a href="index.html"><img src="assets/images/ysi_logo.png" alt="Logo"></a></figure>
                     </div>
-                    <div class="menu-area pull-right ">
-                        
+                    <div class="menu-area">
                         <div class="mobile-nav-toggler">
                             <i class="icon-bar"></i>
                             <i class="icon-bar"></i>
@@ -204,13 +202,120 @@
                                 </ul>
                             </div>
                         </nav>
-                        
-                        
                     </div>
                 </div>
+                
             </div>
         </div>
-        </header>
+    </header>
+
+
+    <style>
+        /* Default styling for the menu area */
+.menu-area {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: flex-end; /* Push the menu to the right */
+}
+
+/* Styling the mobile menu toggler */
+.mobile-nav-toggler {
+    cursor: pointer;
+    font-size: 20px; /* Adjust the icon size */
+    padding: 10px; /* Add some padding around the toggler */
+}
+
+/* Reduce the size of the menu area in mobile view */
+@media (max-width: 768px) {
+    .menu-area {
+        flex: 0 0 auto; /* Prevent the menu area from stretching */
+        width: auto; /* Allow it to fit its content */
+    }
+
+    .mobile-nav-toggler {
+        font-size: 18px; /* Slightly smaller icon size on mobile */
+        padding: 5px; /* Reduce padding */
+    }
+
+    .main-menu {
+        display: none; /* Keep the dropdown menu hidden initially */
+    }
+
+    .main-menu.active {
+        display: block; /* Show the menu when toggled */
+        position: absolute; /* Overlay the menu */
+        top: 100%; /* Position it below the header */
+        right: 0; /* Align it to the right */
+        background: #fff; /* White background for visibility */
+        width: 80%; /* Occupy 80% of the screen width */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+    }
+
+    .main-menu ul {
+        padding: 10px; /* Add padding inside the menu */
+        margin: 0;
+        list-style: none; /* Remove list bullets */
+    }
+
+    .main-menu li {
+        margin: 10px 0; /* Add space between menu items */
+    }
+
+    .main-menu a {
+        font-size: 16px; /* Adjust font size */
+        color: #333; /* Default link color */
+        text-decoration: none; /* Remove underline */
+    }
+
+    .main-menu a:hover {
+        color: #0073e6; /* Change color on hover */
+    }
+}
+</style>
+
+
+    <style>
+        .outer-box {
+    display: flex; /* Enable flexbox */
+    align-items: center; /* Vertically align items */
+    justify-content: space-between; /* Push logo and menu icon to opposite sides */
+    padding: 0 10px; /* Add some horizontal padding for spacing */
+}
+
+.logo-box img {
+    max-height: 50px; /* Adjust the logo size */
+    width: auto; /* Maintain aspect ratio */
+    margin-right: 30px; /* Add gap between logo and menu icon */
+}
+
+.menu-area {
+    display: flex;
+    align-items: center; /* Vertically center align the menu icon */
+}
+
+.mobile-nav-toggler {
+    cursor: pointer; /* Make menu icon clickable */
+    font-size: 24px; /* Adjust the size of the menu icon */
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .outer-box {
+        flex-direction: row; /* Ensure both elements remain side by side */
+        justify-content: space-between; /* Push logo and icon to opposite sides */
+    }
+
+    .menu-area {
+        justify-content: flex-end; /* Ensure the menu icon aligns properly */
+    }
+
+    .logo-box img {
+        margin-right: 200px; /* Increase the gap between the logo and menu icon in mobile view */
+    }
+}
+
+    </style>
+    
 
         <style>
             /* CSS for spacing */
@@ -311,22 +416,6 @@
 
 </style>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const toggler = document.querySelector('.mobile-nav-toggler');
-        const menuArea = document.querySelector('.menu-area');
-
-        toggler.addEventListener('click', function () {
-            menuArea.classList.toggle('active');
-        });
-    });
-</script>
-
-
-
-
-
-
         <style>
             /* General Styling */
             .mobile-nav-toggler {
@@ -398,6 +487,95 @@
         }
         </style>
 
+<style>
+    /* General Styling */
+    .main-header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000; /* Ensure it appears above other content */
+        background: #fff; /* Set background color */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+    }
+    
+    /* Add padding to prevent content overlap */
+    body {
+        padding-top: 80px; /* Adjust this value based on the height of your header */
+    }
+    
+    /* Mobile Navigation Styling */
+    @media (max-width: 768px) {
+        .menu-area {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+    
+        .mobile-nav-toggler {
+            display: block;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    
+        .menu-area .main-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        .menu-area.active .main-menu {
+            display: flex;
+        }
+    
+        .main-menu .navigation {
+            flex-direction: column;
+            padding: 10px 15px;
+        }
+    
+        .main-menu .navigation li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        .main-menu .navigation li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+    }
+    </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggler = document.querySelector('.mobile-nav-toggler');
+        const menuArea = document.querySelector('.menu-area');
+    
+        toggler.addEventListener('click', function () {
+            menuArea.classList.toggle('active');
+        });
+    });
+    </script>
+    
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggler = document.querySelector('.mobile-nav-toggler');
+        const menuArea = document.querySelector('.menu-area');
+
+        toggler.addEventListener('click', function () {
+            menuArea.classList.toggle('active');
+        });
+    });
+</script>
+
+
         
 
 
@@ -442,49 +620,67 @@
     
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Select elements
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const closeBtn = document.querySelector('.close-btn');
-            const menuBackdrop = document.querySelector('.menu-backdrop');
-            const menuToggle = document.querySelector('.menu-toggle'); // Three-line menu icon
-            const menuLinks = document.querySelectorAll('.menu-box a');
-            const body = document.body;
-    
-            // Function to open the menu
-            function openMenu() {
-                mobileMenu.style.display = 'block'; // Show the menu
-                menuBackdrop.style.display = 'block'; // Show the backdrop
-                body.style.overflow = 'hidden'; // Prevent body scrolling
+    // Select elements
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeBtn = document.querySelector('.close-btn');
+    const menuBackdrop = document.querySelector('.menu-backdrop');
+    const menuToggle = document.querySelector('.menu-toggle'); // Three-line menu icon
+    const menuLinks = document.querySelectorAll('.menu-box a');
+    const body = document.body;
+
+    // Function to toggle the menu
+    function toggleMenu() {
+        const isMenuOpen = mobileMenu.style.display === 'block';
+        if (isMenuOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }
+
+    // Function to open the menu
+    function openMenu() {
+        mobileMenu.style.display = 'block'; // Show the menu
+        menuBackdrop.style.display = 'block'; // Show the backdrop
+        body.style.overflow = 'hidden'; // Prevent body scrolling
+    }
+
+    // Function to close the menu
+    function closeMenu() {
+        mobileMenu.style.display = 'none'; // Hide the menu
+        menuBackdrop.style.display = 'none'; // Hide the backdrop
+        body.style.overflow = ''; // Allow body scrolling
+    }
+
+    // Event listeners
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMenu); // Toggle menu on icon click
+    }
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMenu); // Close menu on close button
+    }
+    if (menuBackdrop) {
+        menuBackdrop.addEventListener('click', closeMenu); // Close menu on backdrop click
+    }
+
+    // Close the menu and navigate to the section on link click
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            // Smooth navigation to the target section
+            const targetId = link.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    event.preventDefault(); // Prevent default link behavior
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
-    
-            // Function to close the menu
-            function closeMenu() {
-                mobileMenu.style.display = 'none'; // Hide the menu
-                menuBackdrop.style.display = 'none'; // Hide the backdrop
-                body.style.overflow = ''; // Allow body scrolling
-            }
-    
-            // Event listeners
-            menuToggle.addEventListener('click', openMenu); // Open menu on icon click
-            closeBtn.addEventListener('click', closeMenu); // Close menu on close button
-            menuBackdrop.addEventListener('click', closeMenu); // Close menu on backdrop click
-    
-            // Close the menu and navigate to the section on link click
-            menuLinks.forEach(link => {
-                link.addEventListener('click', function (event) {
-                    // Smooth navigation to the target section
-                    const targetId = link.getAttribute('href');
-                    if (targetId.startsWith('#')) {
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            event.preventDefault(); // Prevent default link behavior
-                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }
-                    closeMenu(); // Close the menu after navigation
-                });
-            });
+            closeMenu(); // Close the menu after navigation
         });
+    });
+});
+
+
     </script>
     
     
@@ -690,7 +886,7 @@
 
     <!-- about-style-two -->
     <section id="about" style="padding: 120px 20px; background-color: #f9f9f9;">
-        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 20px;">About The Program</h2>
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 20px; font-weight: bold;">About The Program</h2>
         <div class="about-container" style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 5px;">
             <!-- Left Column (Text) -->
             <div class="text-column" style="flex: 1; padding: 10px; display: flex; flex-direction: column; justify-content: center;">

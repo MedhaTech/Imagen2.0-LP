@@ -164,9 +164,9 @@
                         <p>Welcome to Bithlo for you analysis.</p>
                     </div> -->
                     <div class="right-column pull-right clearfix">
-                        <div class="phone-box">
+                        <!-- <div class="phone-box">
                             <p><i class="fas fa-phone"></i> contact@youthforsocialimpact.in </p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -207,6 +207,31 @@
             </div>
         </div>
     </header>
+
+    <style>
+        /* Default styling for the logo */
+        .logo-box img {
+            max-width: 100%; /* Ensures responsiveness */
+            height: auto;    /* Maintain aspect ratio */
+        }
+        
+        /* Mobile view: Increase logo size */
+        @media screen and (max-width: 768px) {
+            .logo-box img {
+                width: 350px; /* Increase width */
+                height: auto; /* Adjust height proportionally */
+            }
+        }
+        
+        /* Optional: Slight adjustments for extra small screens */
+        @media screen and (max-width: 480px) {
+            .logo-box img {
+                width: 180px; /* Further increase width for smaller devices */
+                height: auto;
+            }
+        }
+        </style>
+        
 
 
     <style>
@@ -282,7 +307,7 @@
 }
 
 .logo-box img {
-    max-height: 50px; /* Adjust the logo size */
+    max-height: 300px; /* Adjust the logo size */
     width: auto; /* Maintain aspect ratio */
     margin-right: 30px; /* Add gap between logo and menu icon */
 }
@@ -309,7 +334,9 @@
     }
 
     .logo-box img {
-        margin-right: 200px; /* Increase the gap between the logo and menu icon in mobile view */
+        margin-right: 110px; /* Increase the gap between the logo and menu icon in mobile view */
+        max-width: 120px; /* Increase the logo size in mobile view */
+        width: auto; /* Maintain aspect ratio */
     }
 }
 
@@ -3051,6 +3078,39 @@
     </section>
 
     <style>
+        /* Default styles for the testimonial cards */
+        .testimonial-style-three .inner-box {
+            padding: 20px;
+            font-size: 16px;
+        }
+        
+        /* Adjust styles for mobile view */
+        @media screen and (max-width: 768px) {
+            .testimonial-style-three .inner-box {
+                padding: 15px; /* Increase padding slightly */
+                font-size: 16px; /* Increase font size slightly */
+                width: 95%; /* Increase the width of the card */
+                margin: 0 auto; /* Center the card */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add slight shadow for better appearance */
+            }
+        
+            .testimonial-style-three .inner-box .text {
+                max-height: 600px; /* Increase the height limit */
+                overflow-y: auto; /* Add scroll for overflowing content */
+            }
+        
+            .testimonial-style-three .author-info {
+                font-size: 14px; /* Slightly increase font size of author info */
+            }
+        
+            iframe {
+                height: 220px; /* Adjust iframe height */
+            }
+        }
+        </style>
+        
+
+    <style>
     /* Default desktop styles */
 .testimonial-style-three .owl-prev {
     left: -130px; /* Default position for desktop */
@@ -3082,23 +3142,21 @@
 
 <script>
     $(document).ready(function(){
-    $(".single-item-carousel").owlCarousel({
-        items: 1,
-        loop: true,
-        nav: true,
-        dots: false,
-        navText: [
-            '<i class="fa fa-chevron-left"></i>',
-            '<i class="fa fa-chevron-right"></i>'
-        ],
-        onInitialized: function() {
-            $('.testimonial-style-three .owl-prev').css('left', '9000px');
-            $('.testimonial-style-three .owl-next').css('right', '-5000px');
-        }
+        $(".single-item-carousel").owlCarousel({
+            items: 1,
+            loop: true,
+            nav: true,
+            dots: false,
+            navText: [
+                '<i class="fa fa-chevron-left"></i>', // Left chevron
+                '<i class="fa fa-chevron-right"></i>' // Right chevron
+            ]
+        });
     });
-});
+</script>
 
-    </script>
+
+
     
     <style>
         /* Responsive adjustments for mobile view */
@@ -3234,7 +3292,7 @@
     }
 
     .testimonial-style-three .inner-box .text {
-        max-height: 250px; /* Limit the height */
+        max-height: 800px; /* Limit the height */
         overflow-y: auto; /* Add scroll for overflowing content */
     }
 
@@ -12836,7 +12894,7 @@
                                                     width: 100%; /* Ensure blocks take up full width */
                                                     max-width: 300px; /* Optional: Set a max width */
                                                     text-align: center; /* Center the content inside each block */
-                                                    margin-bottom: 20px; /* Add spacing between blocks */
+                                                    margin-bottom: 50px; /* Add spacing between blocks */
                                                 }
                                         
                                                 /* Adjust padding for smaller screens */
@@ -12862,7 +12920,7 @@
         </div>
         </div>
         </div>
-    </section>    
+    </section>    <br><br><br>
     <!-- pricing-section end -->
 
     <!-- clients-section -->
@@ -12922,7 +12980,6 @@
         }
     });
 });
-
     </script>
 
    
@@ -12961,7 +13018,7 @@
 }
 
 .owl-nav .owl-prev {
-    left: -100px; /* Adjust left arrow position for desktop */
+    left: -140px; /* Adjust left arrow position for desktop */
 }
 
 .owl-nav .owl-next {
@@ -12992,7 +13049,7 @@
     }
 
     .owl-nav .owl-prev {
-        left: -60px; /* Move left arrow more to the left in mobile view */
+        left: -110px; /* Move left arrow more to the left in mobile view */
     }
 
     .sec-title {
@@ -13000,8 +13057,6 @@
         margin-bottom: 15px;
     }
 }
-
-
     </style>
     <!-- clients-section end -->
 
@@ -13158,8 +13213,7 @@
                             }
                         });
                     });
-                </script>
-     -->
+                </script> -->
                 <!-- <style>
                     .acc-content {
                         display: none;
@@ -13337,6 +13391,30 @@
     </section>
 
     <style>
+        /* General Section Styling */
+#lastyearhighlights,
+#faqs {
+    margin: 0;
+    padding: 0;
+}
+
+/* Mobile View Adjustments */
+@media screen and (max-width: 767px) {
+    #lastyearhighlights {
+        margin-bottom: 0; /* Remove bottom margin for Key Partners */
+    }
+
+    #faqs {
+        margin-top: 0; /* Remove top margin for FAQs */
+    }
+
+    .sec-title {
+        margin-bottom: 10px; /* Adjust spacing for titles if needed */
+    }
+}
+</style>
+
+    <style>
         @media screen and (max-width: 768px) {
             /* Remove the padding between the two columns */
             .faq-style-two .image-column, 
@@ -13440,6 +13518,9 @@
                         <ul class="social-links">
                             <li><a href="https://www.instagram.com/yfsi_telangana/" class="fab fa-instagram" target="_blank"></a></li>
                             <li><a href="https://www.youtube.com/watch?v=fkrhn2qSK-A&t=274s" class="fab fa-youtube" target="_blank"></a></li>
+                            <div class="phone-box">
+                                <p><i class="fas fa-phone"></i> contact@youthforsocialimpact.in </p>
+                            </div>
                         </ul>
                     </div>
                     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> -->
@@ -13450,6 +13531,51 @@
     </footer>
 
     <!-- <i class="fa fa-linkedin" aria-hidden="true"></i> -->
+
+    <style>
+        /* Mobile View: Adjust position of social icons and phone-bar */
+        @media screen and (max-width: 1024px) {
+            .right-column {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start; /* Align to the left */
+            }
+    
+            .right-column .social-links {
+                margin-bottom: 10px; /* Add space between icons and phone number */
+                padding-left: 20px; /* Move icons slightly to the right */
+            }
+    
+            .right-column .phone-box {
+                margin-top: 40px; /* Add space between phone number and social links */
+                padding-left: -600px; /* Align the phone number with the icons */
+            }
+    
+            .right-column .phone-box p {
+                margin: 0; /* Remove default margin to prevent unwanted space */
+            }
+        }
+    </style>
+    
+
+    <style>
+       /* Desktop View: Move Instagram, YouTube icons and phone number slightly to the right */
+@media screen and (min-width: 1024px) {
+    .right-column {
+        margin-left: 320px; /* Move the entire right-column to the right */
+    }
+
+    .right-column .social-links {
+        margin-left: 15px; /* Move social icons slightly to the right */
+    }
+
+    .right-column .phone-box {
+        margin-left: 15px; /* Move phone number slightly to the right */
+    }
+}
+
+</style>
+     
      <style>
         .social-links {
     list-style: none;

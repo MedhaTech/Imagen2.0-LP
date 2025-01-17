@@ -7332,7 +7332,7 @@ h3 a:hover {}
 
 .testimonial-style-three {
   position: relative;
-  padding: 112px 0px 165px 0px;
+  padding: 83px 0px 165px 0px;
 }
 
 .testimonial-style-three .pattern-layer {
@@ -12297,6 +12297,7 @@ h3 a:hover {}
 .banner-style-eight .content-box {
   position: relative;
   display: block;
+  bottom: 60px;
 }
 
 .banner-style-eight .content-box h2 {
@@ -12329,10 +12330,12 @@ h3 a:hover {}
   display: block;
   margin-left: 40px;
   margin-right: -171px;
+  bottom: 96px;
 }
 
 .banner-style-eight .image-box img {
-  width: 100%;
+  width: 79%;
+  margin-right: 165px;
 }
 
 .banner-style-eight .pattern-layer .pattern-1 {

@@ -22,7 +22,7 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 400 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ubuntu@${{ secrets.IMG_PROD_HOSTNAME }} '
-            cd /var/www/html/LP &&
+            cd /var/www/html/Imagen-Prod-LP &&
             sudo git fetch origin &&
             sudo git checkout main  &&
             sudo git pull origin main '

@@ -226,34 +226,75 @@
 
 
     // single-item-carousel
-	if ($('.single-item-carousel').length) {
-		$('.single-item-carousel').owlCarousel({
-			loop:true,
-			margin:30,
-			nav:true,
-			smartSpeed: 500,
-			autoplay: 1000,
-			navText: [ '<span class="fal fa-long-arrow-left"></span>', '<span class="fal fa-long-arrow-right"></span>' ],
-			responsive:{
-				0:{
-					items:1
-				},
-				480:{
-					items:1
-				},
-				600:{
-					items:1
-				},
-				800:{
-					items:1
-				},			
-				1200:{
-					items:1
-				}
+	// if ($('.single-item-carousel').length) {
+	// 	$('.single-item-carousel').owlCarousel({
+	// 		loop:true,
+	// 		margin:30,
+	// 		nav:true,
+	// 		smartSpeed: 500,
+	// 		autoplay: 1000,
+	// 		navText: [ '<span class="fal fa-long-arrow-left"></span>', '<span class="fal fa-long-arrow-right"></span>' ],
+	// 		responsive:{
+	// 			0:{
+	// 				items:1
+	// 			},
+	// 			480:{
+	// 				items:1
+	// 			},
+	// 			600:{
+	// 				items:1
+	// 			},
+	// 			800:{
+	// 				items:1
+	// 			},			
+	// 			1200:{
+	// 				items:1
+	// 			}
 
+	// 		}
+	// 	});    		
+	// }
+
+	if ($('.single-item-carousel').length) {
+		var owl = $('.single-item-carousel');
+	
+		owl.owlCarousel({
+			loop: true,
+			margin: 30,
+			nav: true,
+			smartSpeed: 500,
+			autoplay: true, // Ensure autoplay is true
+			autoplayTimeout: 1000, // Adjust time for each slide transition
+			autoplayHoverPause: true, // Built-in option to pause autoplay on hover
+			navText: ['<span class="fal fa-long-arrow-left"></span>', '<span class="fal fa-long-arrow-right"></span>'],
+			responsive: {
+				0: {
+					items: 1
+				},
+				480: {
+					items: 1
+				},
+				600: {
+					items: 1
+				},
+				800: {
+					items: 1
+				},
+				1200: {
+					items: 1
+				}
 			}
-		});    		
-	}
+		});
+	
+		// Optional: Add custom behavior to stop/start the autoplay manually on hover
+		owl.on('mouseenter', function() {
+			owl.trigger('stop.owl.autoplay'); // Stop autoplay on hover
+		});
+	
+		owl.on('mouseleave', function() {
+			owl.trigger('play.owl.autoplay', [1000]); // Restart autoplay on mouse leave
+		});
+	}	
 
 
     //two-column-carousel
@@ -294,6 +335,7 @@
 			nav:true,
 			smartSpeed: 500,
 			autoplay: 1000,
+			autoplayHoverPause: true, // Built-in option to pause autoplay on hover
 			navText: [ '<span class="fas fa-angle-left"></span>', '<span class="fas fa-angle-right"></span>' ],
 			responsive:{
 				0:{

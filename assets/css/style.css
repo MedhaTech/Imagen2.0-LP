@@ -15344,6 +15344,9 @@ h3 a:hover{
       margin-bottom: 5px; /* Add some spacing between icons and text */
   }
 
+  .college-details1 i {
+    margin-bottom: 27px; /* Add some spacing between icons and text */
+}
   .idea-info h4 {
       font-size: 16px; /* Slightly reduce font size for smaller screens */
   }
@@ -15833,4 +15836,11 @@ width: 150px;
 .right-column .phone-box {
     margin-left: 15px; /* Move phone number slightly to the right */
 }
+}
+
+.counter-block-one .count-outer {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ffbc00;
+  margin-bottom: 8px;
 }

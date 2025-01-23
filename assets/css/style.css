@@ -962,7 +962,7 @@ img {
 
 .main-menu .navigation > li > a:hover{
 
-  color: #b81818;
+  color: #3cb3c0;
 
 }
 
@@ -1678,7 +1678,7 @@ div#mCSB_1_container{
 
 .banner-section .content-box p{
   font-size: 18px;
-  line-height: 36px;
+  line-height: 32px;
   margin-bottom: 52px;
 }
 
@@ -4791,7 +4791,7 @@ h3 a:hover{
   position: relative;
   display: block;
   border-right: 2px solid #dddddd;
-  background: #f5f5f5;
+  background: #fff;
   transition: all 500ms ease;
 }
 
@@ -15344,6 +15344,9 @@ h3 a:hover{
       margin-bottom: 5px; /* Add some spacing between icons and text */
   }
 
+  .college-details1 i {
+    margin-bottom: 27px; /* Add some spacing between icons and text */
+}
   .idea-info h4 {
       font-size: 16px; /* Slightly reduce font size for smaller screens */
   }
@@ -15833,4 +15836,11 @@ width: 150px;
 .right-column .phone-box {
     margin-left: 15px; /* Move phone number slightly to the right */
 }
+}
+
+.counter-block-one .count-outer {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ffbc00;
+  margin-bottom: 8px;
 }

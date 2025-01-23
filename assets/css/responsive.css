@@ -888,6 +888,7 @@
 
   .service-section{
     padding: 65px 0px 40px 0px;
+    margin-top: 0px;
   }
 
   .works-section .sec-title{
@@ -1046,7 +1047,7 @@
   }
 
   .clients-style-two{
-    padding: 65px 0px 114px 0px;
+    padding: 11px 0px 114px 0px;
   }
 
   .footer-top-two{
@@ -1454,7 +1455,7 @@
   }
 
   .faq-style-two{
-    padding: 70px 0px !important;
+    padding: 0px 0px !important;
   }
 
   .solutions-style-two,
@@ -2092,6 +2093,21 @@
     top: 55%;
   }
 
+  .footer-bottom p,
+  .footer-bottom a{
+    font-size: 13px;
+    line-height: 30px;
+    color: #ffffff;
+  }
+
+  .clients-style-two .clients-logo-box{
+    position: relative;
+    display: block;
+    border-right: 2px solid #dddddd;
+    padding-top: 10px;
+    background: #fff;
+    transition: all 500ms ease;
+  }
 
 }
 

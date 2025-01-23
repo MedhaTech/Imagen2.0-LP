@@ -263,7 +263,7 @@
 			margin: 30,
 			nav: true,
 			smartSpeed: 500,
-			autoplay: true, // Ensure autoplay is true
+			autoplay: false, // Ensure autoplay is true
 			autoplayTimeout: 1000, // Adjust time for each slide transition
 			autoplayHoverPause: true, // Built-in option to pause autoplay on hover
 			navText: ['<span class="fal fa-long-arrow-left"></span>', '<span class="fal fa-long-arrow-right"></span>'],
@@ -285,6 +285,21 @@
 				}
 			}
 		});
+
+		
+        $(".single-item-carousel").owlCarousel({
+            items: 1,  // Display one item at a time
+            loop: true,  // Infinite loop
+            margin: 10,  // Spacing between items
+            nav: true,  // Enable navigation
+            navText: ['<', '>'],  // Custom text for arrows
+            dots: false,  // Disable dots
+            autoplay: false,  // Enable autoplay
+            autoplayTimeout: 10000,  // Delay between auto slides
+            autoplayHoverPause: true  // Pause on hover
+        });
+
+
 	
 		// Optional: Add custom behavior to stop/start the autoplay manually on hover
 		owl.on('mouseenter', function() {

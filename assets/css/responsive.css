@@ -2104,7 +2104,7 @@
     position: relative;
     display: block;
     border-right: 2px solid #dddddd;
-    padding-top: 10px;
+    padding-top: 0px;
     background: #fff;
     transition: all 500ms ease;
   }

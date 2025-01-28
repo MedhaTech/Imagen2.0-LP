@@ -937,7 +937,9 @@
 
   .counter-block-one{
     padding-left: 0px;
+    margin-right: 1px;
     text-align: center;
+    margin-left: -1px;
   }
 
   .counter-block-one .inner-box{
@@ -1047,7 +1049,7 @@
   }
 
   .clients-style-two{
-    padding: 11px 0px 114px 0px;
+    padding: 0px 0px 114px 0px;
   }
 
   .footer-top-two{
@@ -1120,7 +1122,7 @@
   }
 
   .pricing-section{
-    padding: 65px 0px 70px 0px;
+    padding: 4px 0px 70px 0px;
   }
 
   .pricing-section .tabs-content .inner .bar{
@@ -1221,7 +1223,7 @@
 
   .testimonial-style-three{
     padding-bottom: 70px;
-    padding-top: 75px;
+    padding-top: 80px;
   }
 
   .testimonial-style-three .testimonial-content:before{
@@ -1455,7 +1457,7 @@
   }
 
   .faq-style-two{
-    padding: 0px 0px !important;
+    padding: 11px 0px !important;
   }
 
   .solutions-style-two,
@@ -1832,8 +1834,8 @@
   }
 
   .pricing-section .tabs-content .inner{
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .header-top-three .info, .header-top-three .right-column{

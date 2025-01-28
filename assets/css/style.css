@@ -566,7 +566,7 @@ img {
 }
 
 .sec-pad{
-  padding: 230px 0px 120px 0px !important;
+  padding: 108px 0px 120px 0px !important;
 }
 
 .mr-0{
@@ -15504,6 +15504,8 @@ margin-top: 0px; /* Adjust the value as per your need */
 background-color: #fff;
 padding: 10px; /* Reduced padding to save space */
 border-radius: 10px;
+margin: 17px;
+margin-left: 47px;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -15535,13 +15537,14 @@ width: 150px;
 }
 }
 /* Center align the left-blocks elements for mobile view */
-@media (max-width: 5000px) {
+@media (max-width: 400px) {
     .left-blocks {
         display: flex; /* Use Flexbox for alignment */
         flex-direction: column; /* Stack items vertically */
         align-items: center; /* Center align horizontally */
-        margin: 0 auto; /* Center the entire container */
-        margin-right: 92px;
+        /* margin: 71 auto; Center the entire container */
+        margin-left: 106px;
+        margin-bottom: 71px;
     }
 
     .counter-block-one {
@@ -15562,13 +15565,13 @@ width: 150px;
 }
 
 /* Center align the right-blocks elements for mobile view */
-@media (max-width: 5000px) {
+@media (max-width: 400px) {
     .right-blocks {
         display: flex; /* Use Flexbox */
         flex-direction: column; /* Stack items vertically */
         align-items: center; /* Center align horizontally */
         margin: 0 auto; /* Center the entire container */
-        margin-right: 92px;
+        margin-right: 120px;
     }
 
     .right-blocks .counter-block-one {
@@ -15960,4 +15963,11 @@ width: 150px;
   .right-side ul.social-icons {
       margin-bottom: -2px;
   }
+}
+
+@media (max-width: 768px) {
+.content_block_16 .content-box .accordion-box .block{
+  padding: 0px;
+  margin: 9px;
+}
 }

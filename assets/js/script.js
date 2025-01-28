@@ -67,6 +67,11 @@
 		$('.mobile-menu .menu-backdrop,.mobile-menu .close-btn').on('click', function() {
 			$('body').removeClass('mobile-menu-visible');
 		});
+
+		// Add click handler for menu items
+		$('.mobile-menu .menu-box .menu-outer li a').on('click', function() {
+			$('body').removeClass('mobile-menu-visible');
+		});
 	}
 
 
@@ -258,58 +263,46 @@
 	if ($('.single-item-carousel').length) {
 		var owl = $('.single-item-carousel');
 	
+		// Initialize Owl Carousel
 		owl.owlCarousel({
 			loop: true,
 			margin: 30,
 			nav: true,
-			smartSpeed: 500,
-			autoplay: false, // Ensure autoplay is true
-			autoplayTimeout: 1000, // Adjust time for each slide transition
-			autoplayHoverPause: true, // Built-in option to pause autoplay on hover
+			autoplay: true, // Enable autoplay
+			autoplayTimeout: 2500, // Delay between auto slides
+			autoplayHoverPause: true, // Pause autoplay on hover
 			navText: ['<span class="fal fa-long-arrow-left"></span>', '<span class="fal fa-long-arrow-right"></span>'],
 			responsive: {
-				0: {
-					items: 1
-				},
-				480: {
-					items: 1
-				},
-				600: {
-					items: 1
-				},
-				800: {
-					items: 1
-				},
-				1200: {
-					items: 1
-				}
+				0: { items: 1 },
+				480: { items: 1 },
+				600: { items: 1 },
+				800: { items: 1 },
+				1200: { items: 1 }
 			}
 		});
-
-		
-        $(".single-item-carousel").owlCarousel({
-            items: 1,  // Display one item at a time
-            loop: true,  // Infinite loop
-            margin: 10,  // Spacing between items
-            nav: true,  // Enable navigation
-            navText: ['<', '>'],  // Custom text for arrows
-            dots: false,  // Disable dots
-            autoplay: false,  // Enable autoplay
-            autoplayTimeout: 10000,  // Delay between auto slides
-            autoplayHoverPause: true  // Pause on hover
-        });
-
-
 	
-		// Optional: Add custom behavior to stop/start the autoplay manually on hover
-		owl.on('mouseenter', function() {
-			owl.trigger('stop.owl.autoplay'); // Stop autoplay on hover
-		});
+		// Access all Vimeo iframes
+		var vimeoIframes = document.querySelectorAll('iframe[src*="vimeo.com"]');
 	
-		owl.on('mouseleave', function() {
-			owl.trigger('play.owl.autoplay', [1000]); // Restart autoplay on mouse leave
+		vimeoIframes.forEach(function(iframe) {
+			var player = new Vimeo.Player(iframe);
+	
+			// Pause autoplay when the video starts playing
+			player.on('play', function() {
+				owl.trigger('stop.owl.autoplay'); // Pause autoplay (does not disable scrolling)
+			});
+	
+			// Resume autoplay when the video is paused or ends
+			player.on('pause', function() {
+				owl.trigger('play.owl.autoplay', [2500]); // Resume autoplay with a delay
+			});
+	
+			player.on('ended', function() {
+				owl.trigger('play.owl.autoplay', [2500]); // Resume autoplay after video ends
+			});
 		});
-	}	
+	}
+	
 
 
     //two-column-carousel

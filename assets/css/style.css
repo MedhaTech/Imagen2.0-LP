@@ -358,7 +358,7 @@ img {
   display: inline-block;
   max-width: 100%;
   height: auto;
-  border-radius: 100px;
+ 
   transition-delay: .1s;
   transition-timing-function: ease-in-out;
   transition-duration: .7s;
@@ -4640,8 +4640,8 @@ h3 a:hover{
 }
 
 .testimonial-style-two .image-box .image:hover:before{
-  -webkit-animation: shine 1s;
-  animation: shine 1s;
+  -webkit-animation: shine 10s;
+  animation: shine 10s;
 }
 
 .testimonial-style-two .testimonial-content .rating-box{
@@ -11738,7 +11738,7 @@ h3 a:hover{
   overflow: visible;
 }
 
-.testimonial-style-five .owl-carousel .owl-stage-outer .owl-item{
+.testimonial-style-five .owl-carousel .-outer .owl-item{
   opacity: 0;
 }
 

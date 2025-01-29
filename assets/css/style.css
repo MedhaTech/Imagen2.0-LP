@@ -588,6 +588,17 @@ img {
   z-index: 1;
   transition: all 500ms ease;
 }
+@media (max-width: 768px) {
+  .scroll-top.style-one {
+      left: auto;
+      right: 20px;
+      bottom: 20px;
+      top: auto; /* Remove top positioning */
+      transform: none; /* Reset transform */
+      position: fixed; /* Make it float */
+    /* Optional: Change color for visibility */
+  }
+}
 
 .scroll-top.style-one:before,
 .scroll-top.style-one:after {
@@ -7310,10 +7321,13 @@ h3 a:hover{
   margin: 0px !important;
 }
 
-.testimonial-style-three .owl-nav{
+/* .testimonial-style-three .owl-nav{
   position: absolute;
   top: -150px;
   right: -60px;
+} */
+.testimonial-style-three .owl-nav{
+  display: none;
 }
 
 .testimonial-style-three .owl-nav .owl-prev,
@@ -15349,9 +15363,7 @@ h3 a:hover{
       margin-bottom: 5px; /* Add some spacing between icons and text */
   }
 
-  .college-details1 i {
-    margin-bottom: 27px; /* Add some spacing between icons and text */
-}
+  
 
   .college-details2 i {
     margin-bottom: 27px; /* Add some spacing between icons and text */
@@ -15537,59 +15549,7 @@ width: 150px;
 }
 }
 /* Center align the left-blocks elements for mobile view */
-@media (max-width: 400px) {
-    .left-blocks {
-        display: flex; /* Use Flexbox for alignment */
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center align horizontally */
-        /* margin: 71 auto; Center the entire container */
-        margin-left: 106px;
-        margin-bottom: 71px;
-    }
 
-    .counter-block-one {
-        width: 100%; /* Ensure blocks take up full width */
-        max-width: 300px; /* Optional: Set max width for better control */
-        text-align: center; /* Center the content inside each block */
-        margin-bottom: 20px; /* Add spacing between blocks */
-    }
-
-    /* Adjust padding for smaller screens */
-    .counter-block-one h4 {
-        font-size: 16px; /* Adjust heading size */
-    }
-
-    .counter-block-one .count-outer {
-        font-size: 24px; /* Adjust count size */
-    }
-}
-
-/* Center align the right-blocks elements for mobile view */
-@media (max-width: 400px) {
-    .right-blocks {
-        display: flex; /* Use Flexbox */
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center align horizontally */
-        margin: 0 auto; /* Center the entire container */
-        margin-right: 120px;
-    }
-
-    .right-blocks .counter-block-one {
-        width: 100%; /* Ensure blocks take up full width */
-        max-width: 300px; /* Optional: Set a max width */
-        text-align: center; /* Center the content inside each block */
-        margin-bottom: 50px; /* Add spacing between blocks */
-    }
-
-    /* Adjust padding for smaller screens */
-    .right-blocks .counter-block-one h4 {
-        font-size: 16px; /* Adjust heading size */
-    }
-
-    .right-blocks .count-outer {
-        font-size: 24px; /* Adjust counter size */
-    }
-}
 
  /* Desktop View */
  .owl-nav {
@@ -15971,3 +15931,72 @@ width: 150px;
   margin: 9px;
 }
 }
+
+
+/*vediomodel*/
+@media (max-width: 768px) {
+  .vedio-mobile {
+      margin-top: 210px;
+  }
+}
+
+/* Target larger phones and tablets */
+@media (max-width: 1024px) {
+  .vedio-mobile {
+      margin-top: 210px;
+  }
+}
+
+/* Target specific iPhone models */
+@media (max-width: 430px) {
+  .vedio-mobile {
+      margin-top: 210px;
+  }
+}
+
+
+
+
+
+
+
+/* Target specific iPhone models */
+@media (max-width: 768px){
+  .desktop-left {
+    display: none;
+  }
+  .desktop-banner-img{
+    display: none;
+  }
+  .user-details12 i{
+    margin-top: 21px;
+  }
+  .college-details12 i{
+    margin-top: 21px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/*vediomodel*/
+@media (min-width: 768px) {
+  .mobile-left {
+      display: none;
+  }
+  .mobile-banner-img{
+    display: none;
+  }
+}
+
+
+
+
+
+

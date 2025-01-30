@@ -59,10 +59,10 @@
 			$(this).prev('.megamenu').slideToggle(900);
 		});
 		//Menu Toggle Btn
-		$('.mobile-nav-toggler').on('click', function() {
+$('.mobile-nav-toggler').on('click', function() {
 			$('body').addClass('mobile-menu-visible');
 		});
-
+		
 		//Menu Toggle Btn
 		$('.mobile-menu .menu-backdrop,.mobile-menu .close-btn').on('click', function() {
 			$('body').removeClass('mobile-menu-visible');
@@ -269,7 +269,7 @@
 			margin: 30,
 			nav: true,
 			autoplay: true, // Enable autoplay
-			autoplayTimeout: 2500, // Delay between auto slides
+			autoplayTimeout: 3800, // Delay between auto slides
 			autoplayHoverPause: true, // Pause autoplay on hover
 			navText: ['<span class="fal fa-long-arrow-left"></span>', '<span class="fal fa-long-arrow-right"></span>'],
 			responsive: {
@@ -281,25 +281,30 @@
 			}
 		});
 	
-		// Access all Vimeo iframes
+		// Select all Vimeo iframes
 		var vimeoIframes = document.querySelectorAll('iframe[src*="vimeo.com"]');
 	
 		vimeoIframes.forEach(function(iframe) {
 			var player = new Vimeo.Player(iframe);
 	
-			// Pause autoplay when the video starts playing
-			player.on('play', function() {
-				owl.trigger('stop.owl.autoplay'); // Pause autoplay (does not disable scrolling)
-			});
+			// Stop autoplay IMMEDIATELY when user clicks play (desktop) or taps (mobile)
+			function stopAutoplay() {
+				owl.trigger('stop.owl.autoplay'); // Stop autoplay
+			}
 	
-			// Resume autoplay when the video is paused or ends
-			player.on('pause', function() {
-				owl.trigger('play.owl.autoplay', [2500]); // Resume autoplay with a delay
-			});
+			// Resume autoplay only when video is paused or ended
+			function resumeAutoplay() {
+				owl.trigger('play.owl.autoplay', [3800]); // Resume autoplay after 10s
+			}
 	
-			player.on('ended', function() {
-				owl.trigger('play.owl.autoplay', [2500]); // Resume autoplay after video ends
-			});
+			// Event Listeners for Desktop & Mobile
+			iframe.addEventListener('click', stopAutoplay); // Desktop
+			iframe.addEventListener('touchstart', stopAutoplay); // Mobile
+	
+			// Use Vimeo API to detect actual video play/pause state
+			player.on('play', stopAutoplay); // Stop autoplay when video starts
+			player.on('pause', resumeAutoplay); // Resume autoplay when paused
+			player.on('ended', resumeAutoplay); // Resume autoplay when ended
 		});
 	}
 	

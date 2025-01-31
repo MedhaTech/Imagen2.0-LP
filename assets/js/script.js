@@ -59,12 +59,17 @@
 			$(this).prev('.megamenu').slideToggle(900);
 		});
 		//Menu Toggle Btn
-		$('.mobile-nav-toggler').on('click', function() {
+$('.mobile-nav-toggler').on('click', function() {
 			$('body').addClass('mobile-menu-visible');
 		});
-
+		
 		//Menu Toggle Btn
 		$('.mobile-menu .menu-backdrop,.mobile-menu .close-btn').on('click', function() {
+			$('body').removeClass('mobile-menu-visible');
+		});
+
+		// Add click handler for menu items
+		$('.mobile-menu .menu-box .menu-outer li a').on('click', function() {
 			$('body').removeClass('mobile-menu-visible');
 		});
 	}
@@ -258,58 +263,66 @@
 	if ($('.single-item-carousel').length) {
 		var owl = $('.single-item-carousel');
 	
+		// Initialize Owl Carousel
 		owl.owlCarousel({
 			loop: true,
 			margin: 30,
 			nav: true,
-			smartSpeed: 500,
-			autoplay: false, // Ensure autoplay is true
-			autoplayTimeout: 1000, // Adjust time for each slide transition
-			autoplayHoverPause: true, // Built-in option to pause autoplay on hover
+			autoplay: true,
+			autoplayTimeout: 3800,
+			autoplayHoverPause: true,
 			navText: ['<span class="fal fa-long-arrow-left"></span>', '<span class="fal fa-long-arrow-right"></span>'],
 			responsive: {
-				0: {
-					items: 1
-				},
-				480: {
-					items: 1
-				},
-				600: {
-					items: 1
-				},
-				800: {
-					items: 1
-				},
-				1200: {
-					items: 1
-				}
+				0: { items: 1 },
+				480: { items: 1 },
+				600: { items: 1 },
+				800: { items: 1 },
+				1200: { items: 1 }
 			}
 		});
-
-		
-        $(".single-item-carousel").owlCarousel({
-            items: 1,  // Display one item at a time
-            loop: true,  // Infinite loop
-            margin: 10,  // Spacing between items
-            nav: true,  // Enable navigation
-            navText: ['<', '>'],  // Custom text for arrows
-            dots: false,  // Disable dots
-            autoplay: false,  // Enable autoplay
-            autoplayTimeout: 10000,  // Delay between auto slides
-            autoplayHoverPause: true  // Pause on hover
-        });
-
-
 	
-		// Optional: Add custom behavior to stop/start the autoplay manually on hover
-		owl.on('mouseenter', function() {
-			owl.trigger('stop.owl.autoplay'); // Stop autoplay on hover
-		});
+		// Select all Vimeo iframes
+		var vimeoIframes = document.querySelectorAll('iframe[src*="vimeo.com"]');
 	
-		owl.on('mouseleave', function() {
-			owl.trigger('play.owl.autoplay', [1000]); // Restart autoplay on mouse leave
+		vimeoIframes.forEach(function(iframe) {
+			var player = new Vimeo.Player(iframe);
+	
+			function stopAutoplay() {
+				owl.trigger('stop.owl.autoplay'); // Stop carousel autoplay
+			}
+	
+			function resumeAutoplay() {
+				owl.trigger('play.owl.autoplay', [3800]); // Resume autoplay
+			}
+	
+			function pauseVideoOnScroll() {
+				player.getCurrentTime().then(function(seconds) {
+					player.getPaused().then(function(paused) {
+						if (!paused && !isElementInViewport(iframe)) {
+							player.pause(); // Pause video if out of view
+						}
+					});
+				});
+			}
+	
+			function isElementInViewport(el) {
+				var rect = el.getBoundingClientRect();
+				return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+			}
+	
+			// Event Listeners
+			iframe.addEventListener('click', stopAutoplay); // Desktop
+			iframe.addEventListener('touchstart', stopAutoplay); // Mobile
+	
+			player.on('play', stopAutoplay);
+			player.on('pause', resumeAutoplay);
+			player.on('ended', resumeAutoplay);
+	
+			window.addEventListener('scroll', pauseVideoOnScroll); // Pause when out of viewport
 		});
-	}	
+	}
+	
+	
 
 
     //two-column-carousel

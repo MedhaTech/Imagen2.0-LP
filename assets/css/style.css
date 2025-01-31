@@ -15900,7 +15900,7 @@ width: 150px;
 }
 
 .right-side ul.social-icons li a {
-  color: #333;
+  color: whitesmoke;
   font-size: 18px;
 }
 
@@ -15968,6 +15968,9 @@ width: 150px;
   .desktop-banner-img{
     display: none;
   }
+  .user-details12{
+    margin-bottom:-20px;
+  }
   .user-details12 i{
     margin-top: 21px;
   }
@@ -15978,9 +15981,11 @@ width: 150px;
 
 
 
-
-
-
+@media (max-width: 400px){
+  .left-blocks{
+    margin-left: -21px;
+  }
+}
 
 
 
@@ -15993,7 +15998,12 @@ width: 150px;
   .mobile-banner-img{
     display: none;
   }
+  .telengana-map{
+    margin-left: 25px;
+  }
 }
+
+
 
 
 

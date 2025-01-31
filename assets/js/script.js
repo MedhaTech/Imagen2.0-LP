@@ -268,9 +268,9 @@ $('.mobile-nav-toggler').on('click', function() {
 			loop: true,
 			margin: 30,
 			nav: true,
-			autoplay: true, // Enable autoplay
-			autoplayTimeout: 3800, // Delay between auto slides
-			autoplayHoverPause: true, // Pause autoplay on hover
+			autoplay: true,
+			autoplayTimeout: 3800,
+			autoplayHoverPause: true,
 			navText: ['<span class="fal fa-long-arrow-left"></span>', '<span class="fal fa-long-arrow-right"></span>'],
 			responsive: {
 				0: { items: 1 },
@@ -287,26 +287,41 @@ $('.mobile-nav-toggler').on('click', function() {
 		vimeoIframes.forEach(function(iframe) {
 			var player = new Vimeo.Player(iframe);
 	
-			// Stop autoplay IMMEDIATELY when user clicks play (desktop) or taps (mobile)
 			function stopAutoplay() {
-				owl.trigger('stop.owl.autoplay'); // Stop autoplay
+				owl.trigger('stop.owl.autoplay'); // Stop carousel autoplay
 			}
 	
-			// Resume autoplay only when video is paused or ended
 			function resumeAutoplay() {
-				owl.trigger('play.owl.autoplay', [3800]); // Resume autoplay after 10s
+				owl.trigger('play.owl.autoplay', [3800]); // Resume autoplay
 			}
 	
-			// Event Listeners for Desktop & Mobile
+			function pauseVideoOnScroll() {
+				player.getCurrentTime().then(function(seconds) {
+					player.getPaused().then(function(paused) {
+						if (!paused && !isElementInViewport(iframe)) {
+							player.pause(); // Pause video if out of view
+						}
+					});
+				});
+			}
+	
+			function isElementInViewport(el) {
+				var rect = el.getBoundingClientRect();
+				return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+			}
+	
+			// Event Listeners
 			iframe.addEventListener('click', stopAutoplay); // Desktop
 			iframe.addEventListener('touchstart', stopAutoplay); // Mobile
 	
-			// Use Vimeo API to detect actual video play/pause state
-			player.on('play', stopAutoplay); // Stop autoplay when video starts
-			player.on('pause', resumeAutoplay); // Resume autoplay when paused
-			player.on('ended', resumeAutoplay); // Resume autoplay when ended
+			player.on('play', stopAutoplay);
+			player.on('pause', resumeAutoplay);
+			player.on('ended', resumeAutoplay);
+	
+			window.addEventListener('scroll', pauseVideoOnScroll); // Pause when out of viewport
 		});
 	}
+	
 	
 
 

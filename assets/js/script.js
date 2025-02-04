@@ -309,14 +309,27 @@
       }
 
       function pauseVideoOnScroll() {
-        player.getCurrentTime().then(function (seconds) {
-          player.getPaused().then(function (paused) {
-            if (!paused && !isElementInViewport(iframe)) {
-              player.pause(); // Pause video if out of view
-            }
+        document.querySelectorAll(".inner-box iframe").forEach((iframe) => {
+          let player = new Vimeo.Player(iframe); // Assuming Vimeo Player
+
+          player.getCurrentTime().then(function (seconds) {
+            player.getPaused().then(function (paused) {
+              if (!paused && !isElementInViewport(iframe)) {
+                player.pause(); // Pause video if out of view
+              }
+            });
           });
         });
       }
+
+      // Helper function to check if an element is in the viewport
+      function isElementInViewport(el) {
+        let rect = el.getBoundingClientRect();
+        return rect.top >= 0 && rect.bottom <= window.innerHeight;
+      }
+
+      // Add event listener to check on scroll
+      window.addEventListener("scroll", pauseVideoOnScroll);
 
       function isElementInViewport(el) {
         var rect = el.getBoundingClientRect();

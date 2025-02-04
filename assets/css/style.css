@@ -735,6 +735,7 @@
 
  .main-header {
    position: absolute;
+   background-color: white;
    left: 0px;
    top: 0px;
    right: 0px;
@@ -795,7 +796,8 @@
    position: relative;
    background: transparent;
    width: 100%;
-   padding: 21px 0px 10px 0px;
+   padding: 4px 0px 9px 0px;
+   background-color: white;
  }
 
  .header-top .phone-box,
@@ -896,9 +898,9 @@
 
  .main-header.style-one .header-top .logo-box {
    position: absolute;
-   left: 0px;
+   left: 86px;
    top: 0px;
-   background: #fff;
+   /* background: #fff; */
    display: inline-block;
    padding: 15px 25px 18px 30px;
    /* border: 1px solid #cccccc; */
@@ -921,8 +923,8 @@
    background: white;
    border: 1px solid rgba(255, 255, 255, 0.5);
    border-radius: 0px 10px 10px 10px;
-   padding-left: 30px;
-   padding-right: 143px;
+   /* padding-left: 30px;
+   padding-right: 143px; */
  }
 
  .main-header.style-one .menu-area .btn-box {
@@ -15871,7 +15873,9 @@
  @media (max-width: 400px) {
    .left-blocks {
      margin-left: -21px;
+     
    }
+   
  }
 
 
@@ -15881,6 +15885,7 @@
  @media (min-width: 768px) {
    .mobile-left {
      display: none;
+
    }
 
    .mobile-banner-img {

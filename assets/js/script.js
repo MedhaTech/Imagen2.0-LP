@@ -791,3 +791,57 @@
     enableMasonry();
   });
 })(window.jQuery);
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".navigation li a");
+
+  const observer = new IntersectionObserver(
+      (entries) => {
+          entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                  let activeSection = entry.target.getAttribute("id");
+                  
+                  navLinks.forEach((link) => {
+                      link.classList.remove("active");
+                      if (link.getAttribute("href") === `#${activeSection}`) {
+                          link.classList.add("active");
+                      }
+                  });
+              }
+          });
+      },
+      { root: null, rootMargin: "0px", threshold: 0.6 }
+  );
+
+  sections.forEach((section) => {
+      observer.observe(section);
+  });
+
+  // Add styles dynamically for animation
+  const style = document.createElement('style');
+  style.innerHTML = `
+      .navigation li a.active {
+          position: relative;
+          color: #3cb3c0;
+          transition: color 0.3s;
+      }
+      .navigation li a.active::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -2px;
+          width: 100%;
+          height: 2px;
+          background: #3cb3c0;
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.3s ease-in-out;
+      }
+     
+  `;
+  document.head.appendChild(style);
+});

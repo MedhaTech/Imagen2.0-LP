@@ -75,8 +75,9 @@
 		},
 
 		adjustNav: function(self, $parent) {
-			self.$elem.find('.' + self.config.currentClass).removeClass(self.config.currentClass);
-			$parent.addClass(self.config.currentClass);
+			// Remove the 'current' class from any nav item
+			// self.$elem.find('.' + self.config.currentClass).removeClass(self.config.currentClass);
+			// $parent.addClass(self.config.currentClass);
 		},
 
 		bindInterval: function() {
@@ -144,14 +145,12 @@
 			var $parent = $link.parent();
 			var newLoc = '#' + self.getHash($link);
 
-			if(!$parent.hasClass(self.config.currentClass)) {
+			// Stop adjusting the currentClass dynamically on click
+			// if(!$parent.hasClass(self.config.currentClass)) {
 				//Start callback
 				if(self.config.begin) {
 					self.config.begin();
 				}
-
-				//Change the highlighted nav item
-				self.adjustNav(self, $parent);
 
 				//Removing the auto-adjust on scroll
 				self.unbindInterval();
@@ -171,7 +170,7 @@
 						self.config.end();
 					}
 				});
-			}
+			// }
 
 			e.preventDefault();
 		},
@@ -181,20 +180,20 @@
 			var position = this.getSection(windowTop);
 			var $parent;
 
-			//If the position is set
+			// If the position is set, but don't change the 'current' class
 			if(position !== null) {
-				$parent = this.$elem.find('a[href$="#' + position + '"]').parent();
+				// $parent = this.$elem.find('a[href$="#' + position + '"]').parent();
 
-				//If it's not already the current section
-				if(!$parent.hasClass(this.config.currentClass)) {
-					//Change the highlighted nav item
-					this.adjustNav(this, $parent);
+				// If it's not already the current section
+				// if(!$parent.hasClass(this.config.currentClass)) {
+					// Change the highlighted nav item
+					// this.adjustNav(this, $parent);
 
-					//If there is a scrollChange callback
-					if(this.config.scrollChange) {
-						this.config.scrollChange($parent);
-					}
-				}
+					// If there is a scrollChange callback
+					// if(this.config.scrollChange) {
+					// 	this.config.scrollChange($parent);
+					// }
+				// }
 			}
 		},
 

@@ -420,9 +420,6 @@
    transition: all 500ms ease;
  }
 
- .theme-btn.btn-one {
-   background: #3cb3c0;
- }
 
  .theme-btn:before {
    position: absolute;
@@ -2094,8 +2091,7 @@
 
  .about-section {
    position: relative;
-   padding-top: 65px;
-   padding-bottom: 113px;
+ 
  }
 
  .image_block_1 .image-box {
@@ -6098,6 +6094,7 @@
  .accordion-box .block .acc-content.current {
    display: block;
  }
+ 
 
  .accordion-box .block .acc-content p {
    font-size: 16px;
@@ -16001,4 +15998,51 @@
      max-width: 320px;
      margin-top: -10px;
    }
+  
  }
+ @media (min-width: 769px) {
+  .content-box p {
+      text-align: justify;
+      word-spacing: -0.5px; /* Reduces excessive gaps */
+  }
+}
+
+
+@media (max-width: 769px) {
+  .content-box p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
+
+@media (min-width: 769px) {
+  .content-box p {
+      text-align: justify;
+      hyphens: auto; /* Helps in breaking words properly */
+  }
+}
+@media (min-width: 769px) {
+  .content-box p {
+      text-align: justify;
+      text-justify: inter-word; /* Ensures better spacing */
+  }
+}
+.content-box {
+  max-width: 800px; /* Adjust width for better text flow */
+  margin: 0 auto; /* Centers the content */
+}
+
+@media (max-width: 769px) {
+  .about-vedio{
+ margin-bottom: -105px;
+margin-top: -100px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+      padding: 15px;
+      max-width: 293px;
+      margin-top: -10px;
+  }
+}

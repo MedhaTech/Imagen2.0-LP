@@ -795,6 +795,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".navigation li a");
@@ -804,7 +821,7 @@ document.addEventListener("DOMContentLoaded", function () {
           entries.forEach((entry) => {
               if (entry.isIntersecting) {
                   let activeSection = entry.target.getAttribute("id");
-                  
+
                   navLinks.forEach((link) => {
                       link.classList.remove("active");
                       if (link.getAttribute("href") === `#${activeSection}`) {
@@ -821,27 +838,79 @@ document.addEventListener("DOMContentLoaded", function () {
       observer.observe(section);
   });
 
+  // Function to set active link on initial load
+  function setActiveOnLoad() {
+      let firstVisibleSection = Array.from(sections).find(section => {
+          let rect = section.getBoundingClientRect();
+          return rect.top >= 0 && rect.bottom <= window.innerHeight;
+      });
+
+      if (firstVisibleSection) {
+          let activeSection = firstVisibleSection.getAttribute("id");
+          navLinks.forEach((link) => {
+              link.classList.remove("active");
+              if (link.getAttribute("href") === `#${activeSection}`) {
+                  link.classList.add("active");
+              }
+          });
+      }
+  }
+
+  window.onload = setActiveOnLoad;
+
   // Add styles dynamically for animation
   const style = document.createElement('style');
   style.innerHTML = `
-      .navigation li a.active {
+  @media (min-width: 769px){
+      .navigation li a {
           position: relative;
-          color: #3cb3c0;
-          transition: color 0.3s;
+          text-decoration: none;
+          color: #333;
+          font-weight: 600;
+          font-size: 16px;
+          transition: color 0.3s ease-in-out;
+          padding: 5px 10px;
       }
+
+      .navigation li a:hover {
+          color: #3cb3c0;
+      }
+
+      .navigation li a.active {
+          color: #3cb3c0;
+          text-shadow: 0 0 10px rgba(60, 179, 192, 0.8); /* Glow Effect */
+      }
+
       .navigation li a.active::after {
           content: "";
           position: absolute;
-          left: 0;
-          bottom: -2px;
-          width: 100%;
-          height: 2px;
-          background: #3cb3c0;
-          transform: scaleX(0);
-          transform-origin: right;
-          transition: transform 0.3s ease-in-out;
+          left: 50%;
+          bottom: -6px;
+          width: 0;
+          height: 3px;
+          background: linear-gradient(90deg, #3cb3c0, #56d8d8);
+          border-radius: 50px;
+          transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
       }
-     
+
+      .navigation li a.active::after {
+          width: 70%;
+          left: 15%;
+      }
+}
   `;
   document.head.appendChild(style);
+});
+
+const observer = new MutationObserver(mutations => {
+  mutations.forEach(mutation => {
+      if (mutation.type === "attributes" && mutation.target.classList.contains("current")) {
+          console.log("current class added by:", mutation.target);
+          console.trace(); // Shows the function that triggered this change
+      }
+  });
+});
+
+document.querySelectorAll(".main-menu .navigation li").forEach(li => {
+  observer.observe(li, { attributes: true });
 });

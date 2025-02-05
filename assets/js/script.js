@@ -861,42 +861,25 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add styles dynamically for animation
   const style = document.createElement('style');
   style.innerHTML = `
-  @media (min-width: 769px){
-      .navigation li a {
-          position: relative;
-          text-decoration: none;
-          color: #333;
-          font-weight: 600;
-          font-size: 16px;
-          transition: color 0.3s ease-in-out;
-          padding: 5px 10px;
-      }
+ @media (min-width: 769px) {
+    .navigation li a {
+        position: relative;
+        text-decoration: none;
+        color: #333;
+        font-weight: 700; /* Increased boldness */
+        font-size: 16px;
+        transition: color 0.3s ease-in-out;
+        padding: 5px 10px;
+    }
 
-      .navigation li a:hover {
-          color: #3cb3c0;
-      }
+    .navigation li a:hover {
+        color: #3cb3c0;
+    }
 
-      .navigation li a.active {
-          color: #3cb3c0;
-          text-shadow: 0 0 10px rgba(60, 179, 192, 0.8); /* Glow Effect */
-      }
-
-      .navigation li a.active::after {
-          content: "";
-          position: absolute;
-          left: 50%;
-          bottom: -6px;
-          width: 0;
-          height: 3px;
-          background: linear-gradient(90deg, #3cb3c0, #56d8d8);
-          border-radius: 50px;
-          transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
-      }
-
-      .navigation li a.active::after {
-          width: 70%;
-          left: 15%;
-      }
+    .navigation li a.active {
+        color: #3cb3c0;
+        font-weight: 800; /* Even bolder for active state */
+    }
 }
   `;
   document.head.appendChild(style);

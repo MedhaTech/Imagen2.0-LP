@@ -1,6 +1,5 @@
-(function($, window, document, undefined){
-
-    var OnePageNav = function(elem, options){
+(function ($, window, document, undefined) {
+    var OnePageNav = function (elem, options) {
         this.elem = elem;
         this.$elem = $(elem);
         this.options = options;
@@ -26,11 +25,11 @@
             scrollChange: false
         },
 
-        init: function() {
+        init: function () {
             this.config = $.extend({}, this.defaults, this.options, this.metadata);
             this.$nav = this.$elem.find(this.config.navItems);
-            
-            if(this.config.filter !== '') {
+
+            if (this.config.filter !== '') {
                 this.$nav = this.$nav.filter(this.config.filter);
             }
 
@@ -41,52 +40,61 @@
             return this;
         },
 
-        getHash: function($link) {
+        getHash: function ($link) {
             return $link.attr('href').split('#')[1];
         },
 
-        getPositions: function() {
+        getPositions: function () {
             var self = this;
-            self.sections = {}; 
-            self.$nav.each(function() {
+            self.sections = {};
+
+            self.$nav.each(function () {
                 var linkHref = self.getHash($(this));
                 var $target = $('#' + linkHref);
-                if($target.length) {
+                if ($target.length) {
                     self.sections[linkHref] = Math.round($target.offset().top);
                 }
             });
         },
 
-        handleClick: function(e) {
+        handleClick: function (e) {
             e.preventDefault();
             var self = this;
             var $link = $(e.currentTarget);
-            var target = '#' + self.getHash($link);
+            var href = $link.attr('href');
             
-            self.scrollTo(target, function() {
-                if(self.config.changeHash) {
-                    history.pushState(null, null, target);
-                }
-                if(self.config.end) {
-                    self.config.end();
-                }
-            });
+            if (href.includes(".html")) {
+                // Navigate to different HTML page
+                window.location.href = href;
+            } else {
+                // Scroll to section within the same page
+                var target = '#' + self.getHash($link);
+
+                self.scrollTo(target, function () {
+                    if (self.config.changeHash) {
+                        history.pushState(null, null, target);
+                    }
+                    if (self.config.end) {
+                        self.config.end();
+                    }
+                });
+            }
         },
 
-        scrollTo: function(target, callback) {
+        scrollTo: function (target, callback) {
             var offset = $(target).offset().top - 70;
             $('html, body').stop().animate({
                 scrollTop: offset
             }, this.config.scrollSpeed, this.config.easing, callback);
         },
 
-        bindScroll: function() {
+        bindScroll: function () {
             var self = this;
-            self.$win.on('scroll.onePageNav', function() {
+            self.$win.on('scroll.onePageNav', function () {
                 self.didScroll = true;
             });
-            
-            setInterval(function() {
+
+            setInterval(function () {
                 if (self.didScroll) {
                     self.didScroll = false;
                     self.scrollChange();
@@ -94,22 +102,22 @@
             }, 250);
         },
 
-        scrollChange: function() {
+        scrollChange: function () {
             var windowTop = this.$win.scrollTop();
             var position = this.getSection(windowTop);
-            
-            if(position) {
+
+            if (position) {
                 this.$elem.find('.' + this.config.currentClass).removeClass(this.config.currentClass);
                 this.$elem.find('a[href$="#' + position + '"]').parent().addClass(this.config.currentClass);
             }
         },
 
-        getSection: function(windowPos) {
+        getSection: function (windowPos) {
             var returnValue = null;
             var windowHeight = Math.round(this.$win.height() * this.config.scrollThreshold);
-            
-            for(var section in this.sections) {
-                if((this.sections[section] - windowHeight) < windowPos) {
+
+            for (var section in this.sections) {
+                if ((this.sections[section] - windowHeight) < windowPos) {
                     returnValue = section;
                 }
             }
@@ -119,10 +127,9 @@
 
     OnePageNav.defaults = OnePageNav.prototype.defaults;
 
-    $.fn.onePageNav = function(options) {
-        return this.each(function() {
+    $.fn.onePageNav = function (options) {
+        return this.each(function () {
             new OnePageNav(this, options).init();
         });
     };
-
-})( jQuery, window, document );
+})(jQuery, window, document);

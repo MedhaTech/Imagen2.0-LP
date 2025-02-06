@@ -15912,13 +15912,12 @@
  /* General Styling */
  .container {
    text-align: center;
-   background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  
    border-radius: 16px;
-   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  
    overflow: hidden;
    padding: 24px;
    max-width: 400px;
-   margin: auto;
    transition: transform 0.3s ease-in-out;
  }
 
@@ -15932,7 +15931,7 @@
    margin-bottom: 20px;
    color: #00796b;
    text-transform: uppercase;
-   font-weight: normal;
+   font-weight: bolder;
  }
 
  /* Stat Card */
@@ -15990,6 +15989,8 @@
    .container {
      padding: 20px;
    }
+   .stat-card p {
+    font-size: 1.4rem;}
  }
 
  @media (max-width: 768px) {
@@ -16004,7 +16005,14 @@
   .content-box p {
       text-align: justify;
       word-spacing: -0.5px; /* Reduces excessive gaps */
+
   }
+  .stat-card .icon{
+   font-size: 2.5rem;
+/* display: none; */
+  }
+  .stat-card span {
+    font-size: 1.7rem;}
 }
 
 
@@ -16012,6 +16020,10 @@
   .content-box p {
     text-align: justify;
     text-justify: inter-word;
+  }
+  .container{
+   margin: auto;
+
   }
 }
 
@@ -16045,4 +16057,41 @@ margin-top: -100px;
       max-width: 293px;
       margin-top: -10px;
   }
+}
+
+
+
+
+
+
+
+
+   /* Hide mobile section on desktops */
+   @media (min-width: 992px) {
+    .mobile-view {
+        display: none;
+    }
+}
+
+/* Hide desktop section on mobile */
+@media (max-width: 991px) {
+    .desktop-view {
+        display: none;
+    }
+}
+
+/* Desktop: Black background for video */
+@media (min-width: 992px) {
+    .video-container {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .video-column.iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the video fills space without distortion */
+    }
 }
